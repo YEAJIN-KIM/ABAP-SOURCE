@@ -1,0 +1,127 @@
+*&---------------------------------------------------------------------*
+*& Include          Z_0722_0502_TOP
+*&---------------------------------------------------------------------*
+
+*EKKO EKPO EKBE
+
+TABLES: EKPO, EKKO, EKBE.
+
+DATA OK_CODE TYPE SY-UCOMM.
+
+*#### ### ## ## ## ##
+DATA: GO_CONTAINER TYPE REF TO CL_GUI_CUSTOM_CONTAINER,
+           GO_ALV_GRID TYPE REF TO CL_GUI_ALV_GRID.
+
+TYPES : BEGIN OF LT_ITAB,
+      CHECK,
+      EBELN TYPE EKPO-EBELN, "Purchase number
+      EBELP TYPE EKPO-EBELP, "item
+      LIFNR TYPE EKKO-LIFNR, "vendor
+      NAME1 TYPE LFA1-NAME1, "name
+      MATNR TYPE EKPO-MATNR, "Material
+      MAKTX TYPE MAKT-MAKTX, "Material Description
+      WERKS TYPE EKPO-WERKS, "plant
+      LGORT TYPE EKPO-LGORT, "Storage Location
+      MENGE TYPE EKPO-MENGE, "Po QUANTITY
+      OPMEN TYPE P LENGTH 10 DECIMALS 2, "##
+      GRQIN TYPE P LENGTH 10 DECIMALS 2, "##
+      MEINS TYPE EKPO-MEINS, "Unit
+      NETPR TYPE EKPO-NETPR, "Net Price
+      WAERS TYPE EKKO-WAERS, "Currency
+      POAMT TYPE P LENGTH 10 DECIMALS 2,"##
+      GRDOC TYPE EKBE-BELNR, "GR Doc
+      GYEAR TYPE EKBE-GJAHR, "Year
+      BWART TYPE EKBE-BWART, "Movement Type
+      GRQTY TYPE EKBE-MENGE, "GR Q'TY
+      GRAMT TYPE EKBE-DMBTR, "Gr amount
+      IVDOC TYPE EKBE-BELNR, "IV Doc
+      IYEAR TYPE EKBE-GJAHR, "Year
+      IVAMT TYPE EKBE-DMBTR, "IV Amount
+      STYLE TYPE LVC_T_STYL,
+END OF LT_ITAB.
+
+TYPES : BEGIN OF LS_GET,
+      CHECK,
+      EBELN TYPE EKPO-EBELN, "Purchase number
+      EBELP TYPE EKPO-EBELP, "item
+      LIFNR TYPE EKKO-LIFNR, "vendor
+      NAME1 TYPE LFA1-NAME1, "name
+      MATNR TYPE EKPO-MATNR, "Material
+      MAKTX TYPE MAKT-MAKTX, "Material Description
+      WERKS TYPE EKPO-WERKS, "plant
+      LGORT TYPE EKPO-LGORT, "Storage Location
+      MENGE TYPE EKPO-MENGE, "Po QUANTITY
+      OPMEN TYPE P LENGTH 10 DECIMALS 2, "##
+      GRQIN TYPE P LENGTH 10 DECIMALS 2, "##
+      MEINS TYPE EKPO-MEINS, "Unit
+      NETPR TYPE EKPO-NETPR, "Net Price
+      WAERS TYPE EKKO-WAERS, "Currency
+      POAMT TYPE P LENGTH 10 DECIMALS 2,"##
+      GRDOC TYPE EKBE-BELNR, "GR Doc
+      GYEAR TYPE EKBE-GJAHR, "Year
+      BWART TYPE EKBE-BWART, "Movement Type
+      GRQTY TYPE EKBE-MENGE, "GR Q'TY
+      GRAMT TYPE EKBE-DMBTR, "Gr amount
+      IVDOC TYPE EKBE-BELNR, "IV Doc
+      IYEAR TYPE EKBE-GJAHR, "Year
+      IVAMT TYPE EKBE-DMBTR, "IV Amount
+*      STYLE TYPE LVC_T_STYL,
+END OF LS_GET.
+
+DATA: GT_ITAB TYPE TABLE OF LT_ITAB.
+DATA: GS_ITAB TYPE LT_ITAB.
+
+DATA: GS_GET TYPE LS_GET.
+DATA: GT_GET TYPE TABLE OF LS_GET.
+
+DATA: BEGIN OF GS_EKBE,
+        EBELN TYPE EKBE-EBELN, "po no.
+        EBELP TYPE EKBE-EBELP, "po item
+        VGABE TYPE EKBE-VGABE, "gr / iv
+        BELNR TYPE EKBE-BELNR, " documente no
+        BUZEI TYPE EKBE-BUZEI, "
+        GJAHR TYPE EKBE-GJAHR, "year
+        BWART TYPE EKBE-BWART, "movement type
+        SHKZG TYPE EKBE-SHKZG, "credit debit
+        MENGE TYPE EKBE-MENGE, "##
+        DMBTR TYPE EKBE-DMBTR, "amount
+      END OF GS_EKBE.
+DATA: GT_EKBE LIKE TABLE OF GS_EKBE.
+
+DATA: GT_MAKT TYPE TABLE OF MAKT,
+           GT_LFA1 TYPE TABLE OF LFA1.
+
+DATA: GT_FCAT TYPE LVC_T_FCAT,
+           GS_FCAT TYPE LVC_S_FCAT.
+
+DATA: GS_LAYOUT TYPE LVC_S_LAYO.
+
+*BAPI ##
+DATA: GS_GOODSMVT_HEADER  TYPE BAPI2017_GM_HEAD_01,
+      GS_GOODSMVT_CODE    TYPE BAPI2017_GM_CODE,
+      GS_HEADER_RET       TYPE BAPI2017_GM_HEAD_RET,
+      GS_GOODSMVT_ITEM    TYPE BAPI2017_GM_ITEM_CREATE,
+      GT_GOODSMVT_ITEM    TYPE TABLE OF BAPI2017_GM_ITEM_CREATE,
+      GV_MATERIALDOCUMENT TYPE BAPI2017_GM_HEAD_RET-MAT_DOC,
+      GV_MATDOCUMENTYEAR  TYPE BAPI2017_GM_HEAD_RET-DOC_YEAR,
+      GS_RETURN           TYPE BAPIRET2,
+      GT_RETURN           TYPE TABLE OF BAPIRET2,
+      GV_MA_DOC_CANCEL    TYPE BAPI2017_GM_HEAD_02-MAT_DOC,
+      GV_MAD_YEAR_CANCEL  TYPE BAPI2017_GM_HEAD_02-DOC_YEAR.
+
+
+SELECTION-SCREEN: BEGIN OF BLOCK  B1 WITH FRAME TITLE TEXT-001.
+*SELECT OPTIONS
+SELECT-OPTIONS : COMPANY FOR  EKPO-BUKRS OBLIGATORY NO INTERVALS NO-EXTENSION,
+                                 "OBLIGATORY ## # ##
+                                 PLANT FOR  EKPO-WERKS,
+                                 MATERIAL FOR EKPO-MATNR,
+                                 VENDOR FOR EKKO-LIFNR,
+                                 P_ORDER FOR EKPO-EBELN,
+                                 P_ORG FOR EKKO-EKORG,
+                                 P_GROUP FOR EKKO-EKGRP.
+
+SELECTION-SCREEN: END OF BLOCK B1.
+
+----------------------------------------------------------------------------------
+Extracted by Mass Download version 1.5.5 - E.G.Mellodew. 1998-2020. Sap Release 751

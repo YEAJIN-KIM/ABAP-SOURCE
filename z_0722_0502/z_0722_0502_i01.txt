@@ -1,0 +1,38 @@
+*&---------------------------------------------------------------------*
+*& Include          Z_0722_0502_I01
+*&---------------------------------------------------------------------*
+*&---------------------------------------------------------------------*
+*&      Module  EXIT  INPUT
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+MODULE EXIT INPUT.
+      CASE OK_CODE.
+           WHEN 'BACK'.
+                LEAVE TO SCREEN 0.
+            WHEN 'EXIT' OR 'CANC'.
+                 LEAVE PROGRAM.
+      ENDCASE.
+ENDMODULE.
+*&---------------------------------------------------------------------*
+*&      Module  USER_COMMAND_0100  INPUT
+*&---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+MODULE USER_COMMAND_0100 INPUT.
+  DATA LS_ITAB LIKE GT_ITAB.
+
+  CASE OK_CODE.
+    WHEN 'CREATE'."### ####### ###.
+      CALL METHOD GO_ALV_GRID->CHECK_CHANGED_DATA.
+*      ALV### ENTER# #### ##
+*      ##### #### ### ## ##
+*      ALV# INTERNAL TABLE #### ######## CALL METHOD.
+      PERFORM CREATE_GOODSMVT.
+    WHEN 'CANCLE'."## GR## ##### ###.
+      PERFORM CANCEL_GOODSMVT.
+  ENDCASE.
+ENDMODULE.
+
+----------------------------------------------------------------------------------
+Extracted by Mass Download version 1.5.5 - E.G.Mellodew. 1998-2020. Sap Release 751

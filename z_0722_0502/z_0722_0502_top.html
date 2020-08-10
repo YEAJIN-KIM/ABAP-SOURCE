@@ -138,7 +138,19 @@ DATA: GS_ITAB TYPE LT_ITAB.<br />
 DATA: GS_GET TYPE LS_GET.<br />
 DATA: GT_GET TYPE TABLE OF LS_GET.<br />
 <br />
-DATA: GT_EKBE LIKE TABLE OF EKBE.<br />
+DATA: BEGIN OF GS_EKBE,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EBELN&nbsp;TYPE&nbsp;EKBE-EBELN,&nbsp;"po&nbsp;no.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EBELP&nbsp;TYPE&nbsp;EKBE-EBELP,&nbsp;"po&nbsp;item<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VGABE&nbsp;TYPE&nbsp;EKBE-VGABE,&nbsp;"gr&nbsp;/&nbsp;iv<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BELNR&nbsp;TYPE&nbsp;EKBE-BELNR,&nbsp;"&nbsp;documente&nbsp;no<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BUZEI&nbsp;TYPE&nbsp;EKBE-BUZEI,&nbsp;"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GJAHR&nbsp;TYPE&nbsp;EKBE-GJAHR,&nbsp;"year<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BWART&nbsp;TYPE&nbsp;EKBE-BWART,&nbsp;"movement&nbsp;type<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SHKZG&nbsp;TYPE&nbsp;EKBE-SHKZG,&nbsp;"credit&nbsp;debit<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MENGE&nbsp;TYPE&nbsp;EKBE-MENGE,&nbsp;"##<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DMBTR&nbsp;TYPE&nbsp;EKBE-DMBTR,&nbsp;"amount<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END&nbsp;OF&nbsp;GS_EKBE.<br />
+DATA: GT_EKBE LIKE TABLE OF GS_EKBE.<br />
 <br />
 DATA: GT_MAKT TYPE TABLE OF MAKT,<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GT_LFA1&nbsp;TYPE&nbsp;TABLE&nbsp;OF&nbsp;LFA1.<br />
@@ -147,6 +159,23 @@ DATA: GT_FCAT TYPE LVC_T_FCAT,<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_FCAT&nbsp;TYPE&nbsp;LVC_S_FCAT.<br />
 <br />
 DATA: GS_LAYOUT TYPE LVC_S_LAYO.<br />
+<br />
+   </div>
+   <div class="codeComment">
+*BAPI&nbsp;##<br />
+   </div>
+   <div class="code">
+DATA: GS_GOODSMVT_HEADER  TYPE BAPI2017_GM_HEAD_01,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_GOODSMVT_CODE&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;BAPI2017_GM_CODE,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_HEADER_RET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;BAPI2017_GM_HEAD_RET,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_GOODSMVT_ITEM&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;BAPI2017_GM_ITEM_CREATE,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GT_GOODSMVT_ITEM&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;TABLE&nbsp;OF&nbsp;BAPI2017_GM_ITEM_CREATE,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GV_MATERIALDOCUMENT&nbsp;TYPE&nbsp;BAPI2017_GM_HEAD_RET-MAT_DOC,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GV_MATDOCUMENTYEAR&nbsp;&nbsp;TYPE&nbsp;BAPI2017_GM_HEAD_RET-DOC_YEAR,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_RETURN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;BAPIRET2,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GT_RETURN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;TABLE&nbsp;OF&nbsp;BAPIRET2,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GV_MA_DOC_CANCEL&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;BAPI2017_GM_HEAD_02-MAT_DOC,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GV_MAD_YEAR_CANCEL&nbsp;&nbsp;TYPE&nbsp;BAPI2017_GM_HEAD_02-DOC_YEAR.<br />
 <br />
 <br />
 SELECTION-SCREEN: BEGIN OF BLOCK  B1 WITH FRAME TITLE TEXT-001.<br />

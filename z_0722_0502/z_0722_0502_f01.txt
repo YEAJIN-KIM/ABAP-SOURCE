@@ -1,0 +1,606 @@
+*----------------------------------------------------------------------*
+***INCLUDE Z_0722_0502_F01.
+*----------------------------------------------------------------------*
+*&---------------------------------------------------------------------*
+*& Form MAKE_FCAT
+*&---------------------------------------------------------------------*
+*& text
+*&---------------------------------------------------------------------*
+*& -->  p1        text
+*& <--  p2        text
+*&---------------------------------------------------------------------*
+FORM MAKE_FCAT .
+
+          GS_FCAT-FIELDNAME = 'EBELN'. "## ## ### ## #
+          GS_FCAT-REF_FIELD = 'EBELN'. "DICTIONARY# ### ## #
+          GS_FCAT-REF_TABLE = 'EKPO'.
+          GS_FCAT-COLTEXT = 'PUCHASING NUMBER'.
+          GS_FCAT-FIX_COLUMN = 'X'.
+          GS_FCAT-HOTSPOT = 'X'.
+          APPEND GS_FCAT TO GT_FCAT.
+          CLEAR GS_FCAT.
+
+          GS_FCAT-FIELDNAME = 'EBELP'. "## ## ### ## #
+          GS_FCAT-REF_FIELD = 'EBELP'. "DICTIONARY# ### ## #
+          GS_FCAT-REF_TABLE = 'EKPO'.
+          GS_FCAT-COLTEXT = 'ITEM'.
+          GS_FCAT-FIX_COLUMN = 'X'.
+          APPEND GS_FCAT TO GT_FCAT.
+          CLEAR GS_FCAT.
+
+          GS_FCAT-FIELDNAME = 'LIFNR'. "## ## ### ## #
+          GS_FCAT-REF_FIELD = 'LIFNR'. "DICTIONARY# ### ## #
+          GS_FCAT-REF_TABLE = 'EKKO'.
+          GS_FCAT-COLTEXT = 'VENDOR'.
+          GS_FCAT-FIX_COLUMN = 'X'.
+          APPEND GS_FCAT TO GT_FCAT.
+          CLEAR GS_FCAT.
+
+          GS_FCAT-FIELDNAME = 'NAME1'. "## ## ### ## #
+          GS_FCAT-REF_FIELD = 'NAME1'. "DICTIONARY# ### ## #
+          GS_FCAT-REF_TABLE = 'LFA1'.
+          GS_FCAT-COLTEXT = 'NAME'.
+          APPEND GS_FCAT TO GT_FCAT.
+          CLEAR GS_FCAT.
+
+          GS_FCAT-FIELDNAME = 'MATNR'. "## ## ### ## #
+          GS_FCAT-REF_FIELD = 'MATNR'. "DICTIONARY# ### ## #
+          GS_FCAT-REF_TABLE = 'EKPO'.
+          GS_FCAT-COLTEXT = 'MATERIAL'.
+          GS_FCAT-FIX_COLUMN = 'X'.
+          GS_FCAT-HOTSPOT = 'X'.
+          APPEND GS_FCAT TO GT_FCAT.
+          CLEAR GS_FCAT.
+
+          GS_FCAT-FIELDNAME = 'MAKTX'. "## ## ### ## #
+          GS_FCAT-REF_FIELD = 'MAKTX'. "DICTIONARY# ### ## #
+          GS_FCAT-REF_TABLE = 'MAKT'.
+          GS_FCAT-COLTEXT = 'MATERIAL DESCRIPTION'.
+          GS_FCAT-FIX_COLUMN = 'X'.
+          APPEND GS_FCAT TO GT_FCAT.
+          CLEAR GS_FCAT.
+
+          GS_FCAT-FIELDNAME = 'WERKS'. "## ## ### ## #
+          GS_FCAT-REF_FIELD = 'WERKS'. "DICTIONARY# ### ## #
+          GS_FCAT-REF_TABLE = 'EKPO'.
+          GS_FCAT-COLTEXT = 'PLANT'.
+          APPEND GS_FCAT TO GT_FCAT.
+          CLEAR GS_FCAT.
+
+          GS_FCAT-FIELDNAME = 'LGORT'. "## ## ### ## #
+          GS_FCAT-REF_FIELD = 'LGORT'. "DICTIONARY# ### ## #
+          GS_FCAT-REF_TABLE = 'EKPO'.
+          GS_FCAT-COLTEXT = 'STORAGE LOCATION'.
+          APPEND GS_FCAT TO GT_FCAT.
+          CLEAR GS_FCAT.
+
+          GS_FCAT-FIELDNAME = 'MENGE'. "## ## ### ## #
+          GS_FCAT-REF_FIELD = 'MENGE'. "DICTIONARY# ### ## #
+          GS_FCAT-REF_TABLE = 'EKPO'.
+          GS_FCAT-COLTEXT = 'PO QUANTITY'.
+          APPEND GS_FCAT TO GT_FCAT.
+          CLEAR GS_FCAT.
+
+          GS_FCAT-FIELDNAME = 'OPMEN'. "## ## ### ## #
+          GS_FCAT-REF_FIELD = 'MENGE'. "DICTIONARY# ### ## #
+          GS_FCAT-REF_TABLE = 'EKPO'.
+          GS_FCAT-COLTEXT = 'OPEN PO QTY'.
+          APPEND GS_FCAT TO GT_FCAT.
+          CLEAR GS_FCAT.
+
+          GS_FCAT-FIELDNAME = 'GRQIN'. "## ## ### ## #
+          GS_FCAT-REF_FIELD = 'MENGE'. "DICTIONARY# ### ## #
+          GS_FCAT-REF_TABLE = 'EKPO'.
+          GS_FCAT-EDIT = 'X'.
+          GS_FCAT-COLTEXT = 'GR PROCESSING QTY'.
+          APPEND GS_FCAT TO GT_FCAT.
+          CLEAR GS_FCAT.
+
+          GS_FCAT-FIELDNAME = 'MEINS'. "## ## ### ## #
+          GS_FCAT-REF_FIELD = 'MEINS'. "DICTIONARY# ### ## #
+          GS_FCAT-REF_TABLE = 'EKPO'.
+          GS_FCAT-COLTEXT = 'UNIT'.
+          APPEND GS_FCAT TO GT_FCAT.
+          CLEAR GS_FCAT.
+
+          GS_FCAT-FIELDNAME = 'NETPR'. "## ## ### ## #
+          GS_FCAT-REF_FIELD = 'NETPR'. "DICTIONARY# ### ## #
+          GS_FCAT-REF_TABLE = 'EKPO'.
+          GS_FCAT-COLTEXT = 'NET PRICE'.
+          APPEND GS_FCAT TO GT_FCAT.
+          CLEAR GS_FCAT.
+
+          GS_FCAT-FIELDNAME = 'WAERS'. "## ## ### ## #
+          GS_FCAT-REF_FIELD = 'WAERS'. "DICTIONARY# ### ## #
+          GS_FCAT-REF_TABLE = 'EKKO'.
+          GS_FCAT-COLTEXT = 'CURRENCY'.
+          APPEND GS_FCAT TO GT_FCAT.
+          CLEAR GS_FCAT.
+
+          GS_FCAT-FIELDNAME = 'POAMT'. "## ## ### ## #
+*          GS_FCAT-REF_FIELD = 'MENGE'. "DICTIONARY# ### ## #
+*          GS_FCAT-REF_TABLE = 'EKPO'.
+          GS_FCAT-COLTEXT = 'PO AMOUNT'.
+          APPEND GS_FCAT TO GT_FCAT.
+          CLEAR GS_FCAT.
+
+          GS_FCAT-FIELDNAME = 'GRDOC'. "## ## ### ## #
+          GS_FCAT-REF_FIELD = 'BELNR'. "DICTIONARY# ### ## #
+          GS_FCAT-REF_TABLE = 'EKBE'.
+          GS_FCAT-COLTEXT = 'GR DOC'.
+          APPEND GS_FCAT TO GT_FCAT.
+          CLEAR GS_FCAT.
+
+          GS_FCAT-FIELDNAME = 'GYEAR'. "## ## ### ## #
+          GS_FCAT-REF_FIELD = 'GJAHR'. "DICTIONARY# ### ## #
+          GS_FCAT-REF_TABLE = 'EKBE'.
+          GS_FCAT-COLTEXT = 'YEAR'.
+          APPEND GS_FCAT TO GT_FCAT.
+          CLEAR GS_FCAT.
+
+          GS_FCAT-FIELDNAME = 'BWART'. "## ## ### ## #
+          GS_FCAT-REF_FIELD = 'BWART'. "DICTIONARY# ### ## #
+          GS_FCAT-REF_TABLE = 'EKBE'.
+          GS_FCAT-NO_OUT ='X'.
+          GS_FCAT-COLTEXT = 'MOVEMENT TYPE'.
+          APPEND GS_FCAT TO GT_FCAT.
+          CLEAR GS_FCAT.
+
+          GS_FCAT-FIELDNAME = 'GRQTY'. "## ## ### ## #
+          GS_FCAT-REF_FIELD = 'MENGE'. "DICTIONARY# ### ## #
+          GS_FCAT-REF_TABLE = 'EKBE'.
+          GS_FCAT-COLTEXT = 'GR QTY'.
+          APPEND GS_FCAT TO GT_FCAT.
+          CLEAR GS_FCAT.
+
+          GS_FCAT-FIELDNAME = 'GRAMT'. "## ## ### ## #
+          GS_FCAT-REF_FIELD = 'DMBTR'. "DICTIONARY# ### ## #
+          GS_FCAT-REF_TABLE = 'EKBE'.
+          GS_FCAT-COLTEXT = 'GR AMOUNT'.
+          APPEND GS_FCAT TO GT_FCAT.
+          CLEAR GS_FCAT.
+
+          GS_FCAT-FIELDNAME = 'IVDOC'. "## ## ### ## #
+          GS_FCAT-REF_FIELD = 'BELNR'. "DICTIONARY# ### ## #
+          GS_FCAT-REF_TABLE = 'EKBE'.
+          GS_FCAT-COLTEXT = 'IV DOC'.
+          APPEND GS_FCAT TO GT_FCAT.
+          CLEAR GS_FCAT.
+
+          GS_FCAT-FIELDNAME = 'IYEAR'. "## ## ### ## #
+          GS_FCAT-REF_FIELD = 'GJAHR'. "DICTIONARY# ### ## #
+          GS_FCAT-REF_TABLE = 'EKBE'.
+          GS_FCAT-COLTEXT = 'YEAR'.
+          APPEND GS_FCAT TO GT_FCAT.
+          CLEAR GS_FCAT.
+
+          GS_FCAT-FIELDNAME = 'IVAMT'. "## ## ### ## #
+          GS_FCAT-REF_FIELD = 'DMBTR'. "DICTIONARY# ### ## #
+          GS_FCAT-REF_TABLE = 'EKBE'.
+          GS_FCAT-COLTEXT = 'IV AMOUNT'.
+          APPEND GS_FCAT TO GT_FCAT.
+          CLEAR GS_FCAT.
+
+
+ENDFORM.
+*&---------------------------------------------------------------------*
+*& Form SELECT_DATA
+*&---------------------------------------------------------------------*
+*& text
+*&---------------------------------------------------------------------*
+*& -->  p1        text
+*& <--  p2        text
+*&---------------------------------------------------------------------*
+FORM SELECT_DATA .
+      DATA: LT_GET LIKE GT_GET.
+
+SELECT A~EBELN A~EBELP A~MATNR A~WERKS A~LGORT A~MENGE A~MEINS A~NETPR
+              B~LIFNR B~WAERS
+*              C~NAME1 D~MAKTX
+
+      FROM EKPO AS A INNER JOIN EKKO AS B ON A~EBELN = B~EBELN
+*      INNER JOIN LFA1 AS C ON B~LIFNR = C~LIFNR
+*      LEFT OUTER JOIN MAKT AS D ON A~MATNR = D~MATNR AND D~SPRAS = SY-LANGU
+      INTO CORRESPONDING FIELDS OF TABLE GT_GET
+
+       WHERE A~BUKRS IN COMPANY
+             AND A~WERKS IN PLANT
+             AND A~MATNR IN MATERIAL
+             AND B~LIFNR IN VENDOR
+             AND A~EBELN IN P_ORDER
+             AND B~EKORG IN P_ORG
+             AND B~EKGRP IN P_GROUP
+             AND B~BSART = 'NB'. "STANDARD PO AKS SELECT
+
+      IF GT_GET IS NOT INITIAL.
+          SELECT EBELN EBELP VGABE BELNR BUZEI GJAHR
+                        BWART SHKZG MENGE DMBTR
+               FROM EKBE
+               INTO CORRESPONDING FIELDS OF TABLE GT_EKBE
+               FOR ALL ENTRIES IN GT_GET "GT_EKBE# ## DATA## ## WHERE ### ### LOOP ##
+               WHERE EBELN = GT_GET-EBELN
+               AND EBELP = GT_GET-EBELP
+               AND ( VGABE = 1 OR VGABE = 2 ). "TRANSACTION / PO HISTORY
+
+              CLEAR LT_GET.
+              LT_GET = GT_GET.
+
+               SORT LT_GET BY MATNR.
+               DELETE ADJACENT DUPLICATES FROM LT_GET COMPARING MATNR.
+
+               SELECT *
+               FROM MAKT
+                 INTO TABLE GT_MAKT
+                 FOR ALL ENTRIES IN LT_GET
+                 WHERE MATNR = LT_GET-MATNR.
+
+               CLEAR LT_GET.
+               LT_GET = GT_GET.
+
+               SORT LT_GET BY LIFNR.
+               DELETE ADJACENT DUPLICATES FROM LT_GET COMPARING LIFNR.
+
+               SELECT *
+                    FROM LFA1
+                       INTO TABLE GT_LFA1
+                       FOR ALL ENTRIES IN LT_GET
+                     WHERE LIFNR = LT_GET-LIFNR.
+
+      ENDIF.
+ENDFORM.
+*&---------------------------------------------------------------------*
+*& Form MAKE_DATA
+*&---------------------------------------------------------------------*
+*& text
+*&---------------------------------------------------------------------*
+*& -->  p1        text
+*& <--  p2        text
+*&---------------------------------------------------------------------*
+FORM MAKE_DATA .
+            DATA: LS_LFA1 TYPE LFA1.
+            DATA: LV_QTY TYPE EKBE-MENGE. "GR ##
+            DATA: LV_CNT TYPE I. "GR COUNT
+            DATA: LV_IVCNT TYPE I. "IV COUNT
+            DATA: LS_STYLE TYPE LVC_S_STYL.
+
+            CHECK GT_GET IS NOT INITIAL.
+            SORT GT_LFA1 BY LIFNR.
+            LOOP AT GT_GET INTO GS_GET.
+
+                GS_ITAB-EBELN = GS_GET-EBELN.
+                GS_ITAB-EBELP = GS_GET-EBELP.
+                GS_ITAB-LIFNR = GS_GET-LIFNR.
+                GS_ITAB-MATNR = GS_GET-MATNR.
+                GS_ITAB-WERKS = GS_GET-WAERS.
+                GS_ITAB-LGORT = GS_GET-LGORT.
+                GS_ITAB-MENGE = GS_GET-MENGE.
+                GS_ITAB-MEINS = GS_GET-MEINS.
+                GS_ITAB-WAERS = GS_GET-WAERS.
+                GS_ITAB-POAMT = GS_GET-NETPR * GS_GET-MENGE.
+
+                READ TABLE GT_LFA1 INTO LS_LFA1
+                WITH KEY LIFNR = GS_GET-LIFNR BINARY SEARCH.
+                IF SY-SUBRC = 0.
+                    GS_ITAB-NAME1 = LS_LFA1-NAME1.
+                ENDIF.
+
+                LOOP AT GT_EKBE INTO GS_EKBE
+                  WHERE EBELN = GS_GET-EBELN
+                  AND EBELP = GS_GET-EBELP.
+                  IF GS_EKBE-VGABE = 1. "####
+                      IF GS_EKBE-SHKZG = 'H'. "##
+                          GS_EKBE-MENGE = GS_EKBE-MENGE * ( -1 ).
+                          GS_EKBE-DMBTR = GS_EKBE-DMBTR * ( -1 ).
+                      ENDIF.
+                          LV_QTY = LV_QTY + GS_EKBE-MENGE.
+                          GS_ITAB-GRAMT = GS_ITAB-GRAMT + GS_EKBE-DMBTR.
+
+                          IF LV_CNT = 1 .
+                               GS_ITAB-GRDOC = ICON_DISPLAY.
+                          ELSEIF LV_CNT = 0.
+                               GS_ITAB-GRDOC = GS_EKBE-BELNR.
+                          ENDIF.
+                          LV_CNT = LV_CNT + 1.
+
+                  ELSEIF GS_EKBE-VGABE = 2. "IV ##
+                      IF GS_EKBE-SHKZG = 'H'. "##
+                          GS_EKBE-DMBTR = GS_EKBE-DMBTR * ( -1 ).
+                      ENDIF.
+                          GS_ITAB-IVAMT = GS_ITAB-IVAMT + GS_EKBE-DMBTR.
+
+                          IF LV_IVCNT >= 1 .
+                               GS_ITAB-IVDOC = 'MULTI'.
+                          ELSEIF LV_IVCNT = 0.
+                               GS_ITAB-IVDOC = GS_EKBE-BELNR.
+                          ENDIF.
+                          LV_IVCNT = LV_IVCNT + 1.
+                ENDIF.
+
+                ENDLOOP.
+
+                GS_ITAB-GRQTY = LV_QTY.
+                CLEAR: LV_QTY, LV_CNT, LV_IVCNT.
+
+                GS_ITAB-OPMEN = GS_ITAB-MENGE - GS_ITAB-GRQTY.
+                GS_ITAB-GRQIN = GS_ITAB-OPMEN.
+
+                IF GS_ITAB-GRQIN = 0.
+                     LS_STYLE-FIELDNAME = 'GRQIN'.
+                     LS_STYLE-STYLE = CL_GUI_ALV_GRID=>MC_STYLE_DISABLED.
+                     INSERT LS_STYLE INTO TABLE GS_ITAB-STYLE.
+                     CLEAR LS_STYLE.
+                ENDIF.
+
+                APPEND GS_ITAB TO GT_ITAB.
+                CLEAR GS_ITAB.
+
+            ENDLOOP.
+
+
+
+ENDFORM.
+*&---------------------------------------------------------------------*
+*& Form DOUBLE_CLICK_EVENT
+*&---------------------------------------------------------------------*
+*& text
+*&---------------------------------------------------------------------*
+*      -->P_ES_ROW_NO  text
+*      -->P_E_COLUMN  text
+*&---------------------------------------------------------------------*
+FORM DOUBLE_CLICK_EVENT  USING    PS_ROW_NO TYPE LVC_S_ROID
+                                                                  P_COLUMN TYPE LVC_S_COL.
+      READ TABLE GT_ITAB INTO GS_ITAB INDEX PS_ROW_NO-ROW_ID.
+
+      CASE P_COLUMN.
+           WHEN 'LIFNR'.
+            SET PARAMETER ID 'LIF' FIELD GS_ITAB-LIFNR.
+             CALL TRANSACTION 'XK03' AND SKIP FIRST SCREEN.
+      ENDCASE.
+
+ENDFORM.
+*&---------------------------------------------------------------------*
+*& Form HOTSPOT_CLICK_EVENT
+*&---------------------------------------------------------------------*
+*& text
+*&---------------------------------------------------------------------*
+*      -->P_ES_ROW_NO  text
+*      -->P_E_COLUMN_ID  text
+*&---------------------------------------------------------------------*
+FORM HOTSPOT_CLICK_EVENT  USING    PS_ROW_NO TYPE LVC_S_ROID
+                                                                    P_COLUMN_ID TYPE LVC_S_COL.
+
+      READ TABLE GT_ITAB INTO GS_ITAB INDEX PS_ROW_NO-ROW_ID.
+
+      CASE P_COLUMN_ID-FIELDNAME.
+           WHEN 'EBELN'.
+            SET PARAMETER ID 'BES' FIELD GS_ITAB-EBELN.
+            CALL TRANSACTION 'ME23N'.
+
+            WHEN 'MATNR'.
+            SET PARAMETER ID 'MAT' FIELD GS_ITAB-MATNR.
+            CALL TRANSACTION 'MM03' AND SKIP FIRST SCREEN.
+      ENDCASE.
+ENDFORM.
+*&---------------------------------------------------------------------*
+*& Form CREATE_OBJECT
+*&---------------------------------------------------------------------*
+*& text
+*&---------------------------------------------------------------------*
+*& -->  p1        text
+*& <--  p2        text
+*&---------------------------------------------------------------------*
+FORM CREATE_OBJECT .
+ CREATE OBJECT GO_CONTAINER
+               EXPORTING
+                 CONTAINER_NAME              = 'CONTROL_AREA'.
+
+              CREATE OBJECT GO_ALV_GRID
+                EXPORTING
+                  I_PARENT          = GO_CONTAINER.
+
+ENDFORM.
+*&---------------------------------------------------------------------*
+*& Form SET_LAYOUT
+*&---------------------------------------------------------------------*
+*& text
+*&---------------------------------------------------------------------*
+*& -->  p1        text
+*& <--  p2        text
+*&---------------------------------------------------------------------*
+FORM SET_LAYOUT .
+              GS_LAYOUT-CWIDTH_OPT = 'X'.
+              GS_LAYOUT-STYLEFNAME = 'STYLE'.
+ENDFORM.
+*&---------------------------------------------------------------------*
+*& Form ALV_DISPLAY
+*&---------------------------------------------------------------------*
+*& text
+*&---------------------------------------------------------------------*
+*& -->  p1        text
+*& <--  p2        text
+*&---------------------------------------------------------------------*
+FORM ALV_DISPLAY .
+              CREATE OBJECT GO_HANDLER.
+              SET HANDLER GO_HANDLER->ON_DOUBLE_CLICK FOR GO_ALV_GRID.
+              SET HANDLER GO_HANDLER->ON_HOTSPOT_CLICK FOR GO_ALV_GRID.
+
+              CALL METHOD GO_ALV_GRID->REGISTER_EDIT_EVENT
+                EXPORTING
+                    I_EVENT_ID = CL_GUI_ALV_GRID=>MC_EVT_ENTER.
+
+                CALL METHOD GO_ALV_GRID->SET_TABLE_FOR_FIRST_DISPLAY
+                  EXPORTING
+                    IS_LAYOUT                     = GS_LAYOUT
+                  CHANGING
+                    IT_OUTTAB                     = GT_ITAB
+                    IT_FIELDCATALOG               = GT_FCAT.
+ENDFORM.
+*&---------------------------------------------------------------------*
+*& Form CREATE_GOODSMVT
+*&---------------------------------------------------------------------*
+*& text
+*&---------------------------------------------------------------------*
+*& -->  p1        text
+*& <--  p2        text
+*&---------------------------------------------------------------------*
+FORM CREATE_GOODSMVT .
+  DATA: LT_ROWS TYPE LVC_T_ROID,
+             LS_ROWS TYPE LVC_S_ROID.
+
+  CALL METHOD GO_ALV_GRID->GET_SELECTED_ROWS
+    IMPORTING
+*     et_index_rows =
+      ET_ROW_NO = LT_ROWS.
+
+  IF LINES( LT_ROWS ) = 1 .
+    READ TABLE LT_ROWS INTO LS_ROWS INDEX 1.
+    READ TABLE GT_ITAB INTO GS_ITAB  INDEX LS_ROWS-ROW_ID.
+  ELSE.
+    MESSAGE '### #### #####' TYPE 'E'.
+  ENDIF.
+
+  IF GS_ITAB-OPMEN = 0  OR GS_ITAB-OPMEN < GS_ITAB-GRQIN.
+    MESSAGE '## ### #####' TYPE 'E'.
+  ENDIF.
+* HERDER #### *
+  GS_GOODSMVT_HEADER-PSTNG_DATE = SY-DATUM. "today date
+  GS_GOODSMVT_HEADER-DOC_DATE = SY-DATUM. "todaty date
+  GS_GOODSMVT_HEADER-HEADER_TXT = 'TEST'.
+
+  GS_GOODSMVT_CODE-GM_CODE = '01'. "gr code
+* ITEM  #### *
+  GS_GOODSMVT_ITEM-MATERIAL = GS_ITAB-MATNR. "material code
+  GS_GOODSMVT_ITEM-PLANT = GS_ITAB-WERKS. "plant
+  GS_GOODSMVT_ITEM-MOVE_TYPE = '101'. "movement type ##
+  GS_GOODSMVT_ITEM-MVT_IND = 'B'. "item OK code
+  IF GS_ITAB-LGORT IS INITIAL. "storage empty # ####
+    GS_GOODSMVT_ITEM-STGE_LOC = '10Q1'.
+  ELSE.
+    GS_GOODSMVT_ITEM-STGE_LOC =  GS_ITAB-LGORT. "storage
+  ENDIF.
+  GS_GOODSMVT_ITEM-ENTRY_QNT = GS_ITAB-GRQIN. "gr quantity
+  GS_GOODSMVT_ITEM-PO_NUMBER = GS_ITAB-EBELN. "po number
+  GS_GOODSMVT_ITEM-PO_ITEM = GS_ITAB-EBELP. "po itme
+
+  APPEND GS_GOODSMVT_ITEM TO GT_GOODSMVT_ITEM.
+
+  CALL FUNCTION 'BAPI_GOODSMVT_CREATE'
+    EXPORTING
+      GOODSMVT_HEADER  = GS_GOODSMVT_HEADER
+      GOODSMVT_CODE    = GS_GOODSMVT_CODE
+    IMPORTING
+      GOODSMVT_HEADRET = GS_HEADER_RET
+      MATERIALDOCUMENT = GV_MATERIALDOCUMENT
+      MATDOCUMENTYEAR  = GV_MATDOCUMENTYEAR
+    TABLES
+      GOODSMVT_ITEM    = GT_GOODSMVT_ITEM
+      RETURN           = GT_RETURN.
+
+  READ TABLE GT_RETURN INTO GS_RETURN WITH KEY TYPE = 'E'.
+  IF SY-SUBRC = 0. "ERROR # BAPI ## #### ROLL BACK.
+    CALL FUNCTION 'BAPI_TRANSACTION_ROLLBACK'
+*           IMPORTING
+*             RETURN        =
+      .
+    GS_ITAB-GRQIN = GS_ITAB-OPMEN. "gr processing # ## op## ##.
+    MODIFY GT_ITAB FROM GS_ITAB  INDEX LS_ROWS-ROW_ID.
+  ELSE. "ERROR ### BAPI COMMIT & GT OUTTAB ## ## ## ##.
+    CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
+      EXPORTING
+        WAIT = 'X'.
+* GR ## ## ALV ## ## *
+    IF GS_ITAB-GRDOC IS INITIAL.
+        GS_ITAB-GRDOC = GV_MATERIALDOCUMENT. "GR####
+        GS_ITAB-GYEAR = GV_MATDOCUMENTYEAR. "GR## ##
+    ENDIF.
+* PO ## ALV ## ##  *
+    GS_ITAB-GRAMT = GS_ITAB-GRAMT + ( GS_ITAB-GRQIN * GS_ITAB-NETPR ). "GR AMOUNT
+    GS_ITAB-GRQTY = GS_ITAB-GRQTY + GS_ITAB-GRQIN. "GR QUANTITY
+    GS_ITAB-OPMEN = GS_ITAB-OPMEN - GS_ITAB-GRQIN. "PO OPEM QUANTITY
+    GS_ITAB-GRQIN = GS_ITAB-OPMEN. "PO GR PROCESSING QUANTITY
+    MODIFY GT_ITAB FROM GS_ITAB INDEX LS_ROWS-ROW_ID.
+
+  ENDIF.
+
+  CLEAR: GS_GOODSMVT_HEADER,
+         GS_GOODSMVT_CODE,
+         GS_GOODSMVT_ITEM,
+         GS_RETURN.
+  REFRESH: GT_GOODSMVT_ITEM,
+           GT_RETURN.
+ENDFORM.
+*&---------------------------------------------------------------------*
+*& Form CANCEL_GOODSMVT
+*&---------------------------------------------------------------------*
+*& text
+*&---------------------------------------------------------------------*
+*& -->  p1        text
+*& <--  p2        text
+*&---------------------------------------------------------------------*
+FORM CANCEL_GOODSMVT .
+
+  DATA: LT_ROWS TYPE LVC_T_ROID,
+        LS_ROWS TYPE LVC_S_ROID.
+
+  CALL METHOD GO_ALV_GRID->GET_SELECTED_ROWS
+    IMPORTING
+*     et_index_rows =
+      ET_ROW_NO = LT_ROWS.
+
+  IF LINES( LT_ROWS ) = 1 .
+    READ TABLE LT_ROWS INTO LS_ROWS INDEX 1.
+    READ TABLE GT_ITAB INTO GS_ITAB INDEX LS_ROWS-ROW_ID.
+  ELSE.
+    MESSAGE '### #### #####' TYPE 'E'.
+  ENDIF.
+
+  IF GS_ITAB-OPMEN = GS_ITAB-MENGE.
+    MESSAGE '## # GR ### ####' TYPE 'E' DISPLAY LIKE 'W'.
+  ENDIF.
+  LOOP AT GT_EKBE INTO GS_EKBE WHERE EBELN = GS_ITAB-EBELN
+                                 AND EBELP = GS_ITAB-EBELP
+                                 AND VGABE = '1'
+                                 AND SHKZG = 'S'.
+    GV_MA_DOC_CANCEL = GS_EKBE-BELNR.
+    GV_MAD_YEAR_CANCEL = GS_EKBE-GJAHR.
+
+    CALL FUNCTION 'BAPI_GOODSMVT_CANCEL'
+      EXPORTING
+        MATERIALDOCUMENT = GV_MA_DOC_CANCEL "### GR ## ##
+        MATDOCUMENTYEAR  = GV_MAD_YEAR_CANCEL "### ##### YEAR
+*       GOODSMVT_PSTNG_DATE       = "### ### POSTIN DATE
+*       GOODSMVT_PR_UNAME         =
+      IMPORTING
+        GOODSMVT_HEADRET = GS_HEADER_RET
+      TABLES
+        RETURN           = GT_RETURN.
+
+    READ TABLE GT_RETURN INTO GS_RETURN WITH KEY TYPE = 'E'
+                                      BINARY SEARCH.
+    IF SY-SUBRC = 0.
+      REFRESH: GT_RETURN.
+      CLEAR: GS_RETURN.
+      CONTINUE.
+    ELSE.
+      CALL FUNCTION 'BAPI_TRANSACTION_COMMIT'
+        EXPORTING
+          WAIT = 'X'.
+    ENDIF.
+
+    CLEAR: GV_MA_DOC_CANCEL,
+           GV_MAD_YEAR_CANCEL,
+           GS_HEADER_RET,
+           GS_RETURN.
+    REFRESH: GT_RETURN.
+  ENDLOOP.
+*  GS_OUTTAB ALV ## *
+  GS_ITAB-GRAMT = 0.
+  GS_ITAB-GRQTY = 0.
+  GS_ITAB-OPMEN = GS_ITAB-MENGE.
+  GS_ITAB-GRQIN = GS_ITAB-OPMEN.
+  MODIFY GT_ITAB FROM GS_ITAB INDEX LS_ROWS-ROW_ID.
+
+ENDFORM.
+
+----------------------------------------------------------------------------------
+Extracted by Mass Download version 1.5.5 - E.G.Mellodew. 1998-2020. Sap Release 751

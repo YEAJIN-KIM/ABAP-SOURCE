@@ -1,0 +1,47 @@
+*&---------------------------------------------------------------------*
+*& Report Z_0722_0502
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT Z_0722_0502.
+
+INCLUDE Z_0722_0502_TOP.
+INCLUDE Z_0722_0502_C01.
+INCLUDE Z_0722_0502_O01.
+
+INCLUDE Z_0722_0502_I01.
+INCLUDE Z_0722_0502_F01.
+
+
+
+
+INITIALIZATION.
+COMPANY-SIGN = 'I'.
+COMPANY-OPTION = 'EQ'.
+COMPANY-LOW = '1710'.
+APPEND COMPANY.
+
+START-OF-SELECTION.
+PERFORM SELECT_DATA.
+PERFORM MAKE_DATA.
+
+END-OF-SELECTION.
+
+CALL SCREEN 100.
+
+
+*4500003919
+
+*GUI Texts
+*----------------------------------------------------------
+* T001 --> PURCHASE ORDER LIST
+
+
+*Messages
+*----------------------------------------------------------
+*
+* Message class: Hard coded
+*   ### #### #####
+
+----------------------------------------------------------------------------------
+Extracted by Mass Download version 1.5.5 - E.G.Mellodew. 1998-2020. Sap Release 751

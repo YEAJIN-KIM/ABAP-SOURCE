@@ -8,7 +8,7 @@ Z_0722_0502
 751																																
                 40																																
 %_HEADER																																
-Z_0722_0502                             0100 0100     26236192 37  0  0200255  0G E                              20200722143753																																
+Z_0722_0502                             0100 0100     26108192 37  0  0200255  0G E                              20200810184147																																
 %_DESCRIPTION																																
 PP_INFO																																
 %_FIELDS																																
@@ -21,4 +21,4 @@ PROCESS BEFORE OUTPUT.
 *																																
 PROCESS AFTER INPUT.																																
 MODULE EXIT AT EXIT-COMMAND.																																
-* MODULE USER_COMMAND_0100.																																
+MODULE USER_COMMAND_0100.																																

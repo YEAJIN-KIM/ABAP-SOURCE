@@ -1,0 +1,33 @@
+*&---------------------------------------------------------------------*
+*& Include          Z_0722_0502_C01
+*&---------------------------------------------------------------------*
+
+CLASS LCL_EVENT_HANDLER DEFINITION.
+    PUBLIC SECTION.
+    METHODS: ON_DOUBLE_CLICK FOR EVENT DOUBLE_CLICK OF CL_GUI_ALV_GRID
+      IMPORTING ES_ROW_NO E_COLUMN,
+
+                       ON_HOTSPOT_CLICK FOR EVENT HOTSPOT_CLICK OF CL_GUI_ALV_GRID
+      IMPORTING ES_ROW_NO E_COLUMN_ID.
+
+
+
+ENDCLASS.
+
+
+CLASS LCL_EVENT_HANDLER IMPLEMENTATION.
+
+          METHOD ON_DOUBLE_CLICK.
+              PERFORM DOUBLE_CLICK_EVENT USING ES_ROW_NO  E_COLUMN .
+         ENDMETHOD.
+
+         METHOD ON_HOTSPOT_CLICK.
+              PERFORM HOTSPOT_CLICK_EVENT USING ES_ROW_NO E_COLUMN_ID.
+         ENDMETHOD.
+
+ENDCLASS.
+
+DATA: GO_HANDLER TYPE REF TO LCL_EVENT_HANDLER.
+
+----------------------------------------------------------------------------------
+Extracted by Mass Download version 1.5.5 - E.G.Mellodew. 1998-2020. Sap Release 751

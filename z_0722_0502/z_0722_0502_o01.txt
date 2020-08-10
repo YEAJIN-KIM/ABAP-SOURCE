@@ -1,0 +1,37 @@
+*&---------------------------------------------------------------------*
+*& Include          Z_0722_0502_O01
+*&---------------------------------------------------------------------*
+*&---------------------------------------------------------------------*
+*& Module STATUS_0100 OUTPUT
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+MODULE STATUS_0100 OUTPUT.
+ SET PF-STATUS '0100'.
+ SET TITLEBAR 'T001'.
+ENDMODULE.
+*&---------------------------------------------------------------------*
+*& Module ALV OUTPUT
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+MODULE ALV OUTPUT.
+        IF GO_CONTAINER IS INITIAL.
+             PERFORM CREATE_OBJECT.
+             PERFORM MAKE_FCAT.
+             PERFORM SET_LAYOUT.
+             PERFORM ALV_DISPLAY.
+        ELSE.
+          DATA LS_STBL TYPE LVC_S_STBL.
+          LS_STBL-ROW = 'X'.
+          LS_STBL-COL = 'X'.
+
+          CALL METHOD GO_ALV_GRID->REFRESH_TABLE_DISPLAY
+            EXPORTING
+              IS_STABLE      = LS_STBL
+              I_SOFT_REFRESH = 'X'.
+          ENDIF.
+ENDMODULE.
+
+----------------------------------------------------------------------------------
+Extracted by Mass Download version 1.5.5 - E.G.Mellodew. 1998-2020. Sap Release 751
