@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=ISO-8859-1" />
+<title>Z_0623_0502</title>
+<style type="text/css">
+.code{ font-family:"Courier New", Courier, monospace; color:#000; font-size:14px; background-color:#F2F4F7 }
+  .codeComment {font-family:"Courier New", Courier, monospace; color:#0000F0; font-size:14px; background-color:#F2F4F7 }
+  .normalBold{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; font-weight:800 }
+  .normalBoldLarge{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+</style>
+<style type="text/css">
+  .normal{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px }
+  .footer{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; text-align: center }
+  h2{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+  h3{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:14px; font-weight:800 }
+  .outerTable{
+   background-color:#E0E7ED;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-right-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+  .innerTable{
+   background-color:#F2F4F7;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-bottom-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+</style>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: Z_0623_0502</h2>
+<h3> Description: Report Z_0623_0502</h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Report&nbsp;Z_0623_0502<br />
+*&---------------------------------------------------------------------*<br />
+*&<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+REPORT Z_0623_0502.<br />
+<br />
+   </div>
+   <div class="codeComment">
+*STANDARD#&nbsp;INDEX#&nbsp;KEY&nbsp;#&nbsp;##&nbsp;#&nbsp;#&nbsp;##.<br />
+*UNIQUE#&nbsp;##&nbsp;##&nbsp;####&nbsp;###.<br />
+*KEY##&nbsp;ACCESS&nbsp;#&nbsp;####&nbsp;UNIQUE#&nbsp;##&nbsp;##&nbsp;#&nbsp;##&nbsp;HASHED&nbsp;TABLE<br />
+<br />
+*LOCAL&nbsp;STRUCTURE&nbsp;TYPE&nbsp;##<br />
+   </div>
+   <div class="code">
+TYPES:  BEGIN OF TS_TYPE,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CARRID&nbsp;TYPE&nbsp;S_CARR_ID,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CONNID&nbsp;TYPE&nbsp;S_CONN_ID,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SEATMAX&nbsp;TYPE&nbsp;S_SEATSMAX,<br />
+END OF TS_TYPE.<br />
+<br />
+   </div>
+   <div class="codeComment">
+*INTERNAL&nbsp;TABLE-STANDARD&nbsp;##<br />
+   </div>
+   <div class="code">
+DATA GT_ITAB TYPE STANDARD TABLE OF TS_TYPE.<br />
+DATA: GT_STR LIKE LINE OF GT_ITAB.<br />
+<br />
+   </div>
+   <div class="codeComment">
+*##&nbsp;####<br />
+   </div>
+   <div class="code">
+GT_STR-CARRID = 'AA'.<br />
+GT_STR-CONNID = 17.<br />
+GT_STR-SEATMAX = 100.<br />
+APPEND GT_STR TO GT_ITAB. "APPEND # ##  STR# TABLE# ####"<br />
+CLEAR GT_STR. "WORK AREA # #### STR# ####"<br />
+<br />
+GT_STR-CARRID = 'LH'.<br />
+GT_STR-CONNID = 20.<br />
+GT_STR-SEATMAX = 150.<br />
+APPEND GT_STR TO GT_ITAB.<br />
+<br />
+GT_STR-CARRID = 'BB'.<br />
+GT_STR-CONNID = 15.<br />
+GT_STR-SEATMAX = 90.<br />
+APPEND GT_STR TO GT_ITAB.<br />
+<br />
+GT_STR-CARRID = 'AA'.<br />
+GT_STR-CONNID = 17.<br />
+GT_STR-SEATMAX = 33.<br />
+APPEND GT_STR TO GT_ITAB.<br />
+<br />
+BREAK-POINT.<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>
+   <tr>
+<td class="footer">Extracted by Mass Download version 1.5.5 - E.G.Mellodew. 1998-2020. Sap Release 751</td>
+   </tr>
+</table>
+</body>
+</html>

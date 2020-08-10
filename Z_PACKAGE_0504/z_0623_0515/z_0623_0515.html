@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=ISO-8859-1" />
+<title>Z_0623_0515</title>
+<style type="text/css">
+.code{ font-family:"Courier New", Courier, monospace; color:#000; font-size:14px; background-color:#F2F4F7 }
+  .codeComment {font-family:"Courier New", Courier, monospace; color:#0000F0; font-size:14px; background-color:#F2F4F7 }
+  .normalBold{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; font-weight:800 }
+  .normalBoldLarge{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+</style>
+<style type="text/css">
+  .normal{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px }
+  .footer{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; text-align: center }
+  h2{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+  h3{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:14px; font-weight:800 }
+  .outerTable{
+   background-color:#E0E7ED;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-right-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+  .innerTable{
+   background-color:#F2F4F7;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-bottom-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+</style>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: Z_0623_0515</h2>
+<h3> Description: Report Z_0623_0515</h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Report&nbsp;Z_0623_0515<br />
+*&---------------------------------------------------------------------*<br />
+*&<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+REPORT Z_0623_0515.<br />
+<br />
+TYPES : BEGIN OF TS_TYPE1,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CARRID&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;S_CARR_ID,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CONNID&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;S_CONN_ID,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SEATESMAX&nbsp;TYPE&nbsp;S_SEATSMAX,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;I,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END&nbsp;OF&nbsp;TS_TYPE1.<br />
+<br />
+TYPES : BEGIN OF TS_TYPE2,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CARRID&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;S_CARR_ID,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CONNID&nbsp;&nbsp;&nbsp;&nbsp;TYPE&nbsp;S_CONN_ID,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SEATESMAX&nbsp;TYPE&nbsp;S_SEATSMAX,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END&nbsp;OF&nbsp;TS_TYPE2.<br />
+<br />
+DATA : GS_STR TYPE TS_TYPE1.<br />
+DATA : GT_ITAB LIKE TABLE OF GS_STR.<br />
+DATA : GS_WA TYPE TS_TYPE2.<br />
+DATA : GT_ITAB2 LIKE TABLE OF GS_WA.<br />
+DATA GV_TABIX TYPE SY-TABIX.<br />
+<br />
+GS_STR-CARRID = 'AA'.<br />
+GS_STR-CONNID = '17'.<br />
+GS_STR-SEATESMAX = 100.<br />
+GS_STR-NO = 1.<br />
+APPEND GS_STR TO GT_ITAB.<br />
+CLEAR GS_STR.<br />
+<br />
+GS_STR-CARRID = 'LH'.<br />
+GS_STR-CONNID = '20'.<br />
+GS_STR-SEATESMAX = 150.<br />
+GS_STR-NO = 2.<br />
+APPEND GS_STR TO GT_ITAB.<br />
+CLEAR GS_STR.<br />
+<br />
+GS_STR-CARRID = 'BB'.<br />
+GS_STR-CONNID = '15'.<br />
+GS_STR-SEATESMAX = 90.<br />
+GS_STR-NO = 3.<br />
+APPEND GS_STR TO GT_ITAB.<br />
+CLEAR GS_STR.<br />
+<br />
+GS_STR-CARRID = 'AA'.<br />
+GS_STR-CONNID = '17'.<br />
+GS_STR-SEATESMAX = 33.<br />
+GS_STR-NO = 4.<br />
+APPEND GS_STR TO GT_ITAB.<br />
+CLEAR GS_STR.<br />
+<br />
+GS_WA-CARRID = 'AA'.<br />
+GS_WA-CONNID = '17'.<br />
+GS_WA-SEATESMAX = 5.<br />
+APPEND GS_WA TO GT_ITAB2.<br />
+CLEAR GS_WA.<br />
+<br />
+GS_WA-CARRID = 'LH'.<br />
+GS_WA-CONNID = '20'.<br />
+GS_WA-SEATESMAX = 10.<br />
+APPEND GS_WA TO GT_ITAB2.<br />
+CLEAR GS_WA.<br />
+<br />
+GS_WA-CARRID = 'BB'.<br />
+GS_WA-CONNID = '15'.<br />
+GS_WA-SEATESMAX = 2.<br />
+APPEND GS_WA TO GT_ITAB2.<br />
+CLEAR GS_WA.<br />
+<br />
+GS_WA-CARRID = 'AA'.<br />
+GS_WA-CONNID = '17'.<br />
+GS_WA-SEATESMAX = 4.<br />
+APPEND GS_WA TO GT_ITAB2.<br />
+CLEAR GS_WA.<br />
+<br />
+   </div>
+   <div class="codeComment">
+*GT_ITAB#&nbsp;DATA#&nbsp;GS_STR#&nbsp;##&nbsp;:&nbsp;#?&nbsp;#####&nbsp;####!<br />
+   </div>
+   <div class="code">
+LOOP AT GT_ITAB INTO GS_STR.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GV_TABIX&nbsp;=&nbsp;SY-TABIX.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"GS_WA#&nbsp;DATA#&nbsp;GT_ITAB2&nbsp;#&nbsp;####&nbsp;##&nbsp;:&nbsp;#?&nbsp;#####&nbsp;####!"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;GT_ITAB2&nbsp;INTO&nbsp;GS_WA<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WITH&nbsp;KEY&nbsp;CARRID&nbsp;=&nbsp;GS_STR-CARRID<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CONNID&nbsp;=&nbsp;GS_STR-CONNID.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_STR-SEATESMAX&nbsp;=&nbsp;GS_WA-SEATESMAX.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MODIFY&nbsp;GT_ITAB&nbsp;FROM&nbsp;GS_STR&nbsp;INDEX&nbsp;GV_TABIX.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CLEAR&nbsp;GS_STR.<br />
+<br />
+ENDLOOP.<br />
+<br />
+   </div>
+   <div class="codeComment">
+*#&nbsp;###&nbsp;###&nbsp;GT_ITAB2##&nbsp;#####~!<br />
+   </div>
+   <div class="code">
+BREAK-POINT.<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>
+   <tr>
+<td class="footer">Extracted by Mass Download version 1.5.5 - E.G.Mellodew. 1998-2020. Sap Release 751</td>
+   </tr>
+</table>
+</body>
+</html>
