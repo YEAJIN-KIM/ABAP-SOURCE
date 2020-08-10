@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=ISO-8859-1" />
+<title>Z_0722_0502_TOP</title>
+<style type="text/css">
+.code{ font-family:"Courier New", Courier, monospace; color:#000; font-size:14px; background-color:#F2F4F7 }
+  .codeComment {font-family:"Courier New", Courier, monospace; color:#0000F0; font-size:14px; background-color:#F2F4F7 }
+  .normalBold{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; font-weight:800 }
+  .normalBoldLarge{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+</style>
+<style type="text/css">
+  .normal{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px }
+  .footer{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; text-align: center }
+  h2{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+  h3{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:14px; font-weight:800 }
+  .outerTable{
+   background-color:#E0E7ED;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-right-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+  .innerTable{
+   background-color:#F2F4F7;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-bottom-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+</style>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: Z_0722_0502_TOP</h2>
+<h3> Description: Include Z_0722_0502_TOP</h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Include&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Z_0722_0502_TOP<br />
+*&---------------------------------------------------------------------*<br />
+<br />
+*EKKO&nbsp;EKPO&nbsp;EKBE<br />
+<br />
+   </div>
+   <div class="code">
+TABLES: EKPO, EKKO, EKBE.<br />
+<br />
+DATA OK_CODE TYPE SY-UCOMM.<br />
+<br />
+   </div>
+   <div class="codeComment">
+*####&nbsp;###&nbsp;##&nbsp;##&nbsp;##&nbsp;##<br />
+   </div>
+   <div class="code">
+DATA: GO_CONTAINER TYPE REF TO CL_GUI_CUSTOM_CONTAINER,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GO_ALV_GRID&nbsp;TYPE&nbsp;REF&nbsp;TO&nbsp;CL_GUI_ALV_GRID.<br />
+<br />
+TYPES : BEGIN OF LT_ITAB,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CHECK,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EBELN&nbsp;TYPE&nbsp;EKPO-EBELN,&nbsp;"Purchase&nbsp;number<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EBELP&nbsp;TYPE&nbsp;EKPO-EBELP,&nbsp;"item<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LIFNR&nbsp;TYPE&nbsp;EKKO-LIFNR,&nbsp;"vendor<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NAME1&nbsp;TYPE&nbsp;LFA1-NAME1,&nbsp;"name<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MATNR&nbsp;TYPE&nbsp;EKPO-MATNR,&nbsp;"Material<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MAKTX&nbsp;TYPE&nbsp;MAKT-MAKTX,&nbsp;"Material&nbsp;Description<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WERKS&nbsp;TYPE&nbsp;EKPO-WERKS,&nbsp;"plant<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LGORT&nbsp;TYPE&nbsp;EKPO-LGORT,&nbsp;"Storage&nbsp;Location<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MENGE&nbsp;TYPE&nbsp;EKPO-MENGE,&nbsp;"Po&nbsp;QUANTITY<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OPMEN&nbsp;TYPE&nbsp;P&nbsp;LENGTH&nbsp;10&nbsp;DECIMALS&nbsp;2,&nbsp;"##<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GRQIN&nbsp;TYPE&nbsp;P&nbsp;LENGTH&nbsp;10&nbsp;DECIMALS&nbsp;2,&nbsp;"##<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MEINS&nbsp;TYPE&nbsp;EKPO-MEINS,&nbsp;"Unit<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NETPR&nbsp;TYPE&nbsp;EKPO-NETPR,&nbsp;"Net&nbsp;Price<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WAERS&nbsp;TYPE&nbsp;EKKO-WAERS,&nbsp;"Currency<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;POAMT&nbsp;TYPE&nbsp;P&nbsp;LENGTH&nbsp;10&nbsp;DECIMALS&nbsp;2,"##<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GRDOC&nbsp;TYPE&nbsp;EKBE-BELNR,&nbsp;"GR&nbsp;Doc<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GYEAR&nbsp;TYPE&nbsp;EKBE-GJAHR,&nbsp;"Year<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BWART&nbsp;TYPE&nbsp;EKBE-BWART,&nbsp;"Movement&nbsp;Type<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GRQTY&nbsp;TYPE&nbsp;EKBE-MENGE,&nbsp;"GR&nbsp;Q'TY<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GRAMT&nbsp;TYPE&nbsp;EKBE-DMBTR,&nbsp;"Gr&nbsp;amount<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVDOC&nbsp;TYPE&nbsp;EKBE-BELNR,&nbsp;"IV&nbsp;Doc<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IYEAR&nbsp;TYPE&nbsp;EKBE-GJAHR,&nbsp;"Year<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVAMT&nbsp;TYPE&nbsp;EKBE-DMBTR,&nbsp;"IV&nbsp;Amount<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STYLE&nbsp;TYPE&nbsp;LVC_T_STYL,<br />
+END OF LT_ITAB.<br />
+<br />
+TYPES : BEGIN OF LS_GET,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CHECK,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EBELN&nbsp;TYPE&nbsp;EKPO-EBELN,&nbsp;"Purchase&nbsp;number<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EBELP&nbsp;TYPE&nbsp;EKPO-EBELP,&nbsp;"item<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LIFNR&nbsp;TYPE&nbsp;EKKO-LIFNR,&nbsp;"vendor<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NAME1&nbsp;TYPE&nbsp;LFA1-NAME1,&nbsp;"name<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MATNR&nbsp;TYPE&nbsp;EKPO-MATNR,&nbsp;"Material<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MAKTX&nbsp;TYPE&nbsp;MAKT-MAKTX,&nbsp;"Material&nbsp;Description<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WERKS&nbsp;TYPE&nbsp;EKPO-WERKS,&nbsp;"plant<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LGORT&nbsp;TYPE&nbsp;EKPO-LGORT,&nbsp;"Storage&nbsp;Location<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MENGE&nbsp;TYPE&nbsp;EKPO-MENGE,&nbsp;"Po&nbsp;QUANTITY<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OPMEN&nbsp;TYPE&nbsp;P&nbsp;LENGTH&nbsp;10&nbsp;DECIMALS&nbsp;2,&nbsp;"##<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GRQIN&nbsp;TYPE&nbsp;P&nbsp;LENGTH&nbsp;10&nbsp;DECIMALS&nbsp;2,&nbsp;"##<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MEINS&nbsp;TYPE&nbsp;EKPO-MEINS,&nbsp;"Unit<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NETPR&nbsp;TYPE&nbsp;EKPO-NETPR,&nbsp;"Net&nbsp;Price<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WAERS&nbsp;TYPE&nbsp;EKKO-WAERS,&nbsp;"Currency<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;POAMT&nbsp;TYPE&nbsp;P&nbsp;LENGTH&nbsp;10&nbsp;DECIMALS&nbsp;2,"##<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GRDOC&nbsp;TYPE&nbsp;EKBE-BELNR,&nbsp;"GR&nbsp;Doc<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GYEAR&nbsp;TYPE&nbsp;EKBE-GJAHR,&nbsp;"Year<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BWART&nbsp;TYPE&nbsp;EKBE-BWART,&nbsp;"Movement&nbsp;Type<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GRQTY&nbsp;TYPE&nbsp;EKBE-MENGE,&nbsp;"GR&nbsp;Q'TY<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GRAMT&nbsp;TYPE&nbsp;EKBE-DMBTR,&nbsp;"Gr&nbsp;amount<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVDOC&nbsp;TYPE&nbsp;EKBE-BELNR,&nbsp;"IV&nbsp;Doc<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IYEAR&nbsp;TYPE&nbsp;EKBE-GJAHR,&nbsp;"Year<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVAMT&nbsp;TYPE&nbsp;EKBE-DMBTR,&nbsp;"IV&nbsp;Amount<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STYLE&nbsp;TYPE&nbsp;LVC_T_STYL,<br />
+   </div>
+   <div class="code">
+END OF LS_GET.<br />
+<br />
+DATA: GT_ITAB TYPE TABLE OF LT_ITAB.<br />
+DATA: GS_ITAB TYPE LT_ITAB.<br />
+<br />
+DATA: GS_GET TYPE LS_GET.<br />
+DATA: GT_GET TYPE TABLE OF LS_GET.<br />
+<br />
+DATA: GT_EKBE LIKE TABLE OF EKBE.<br />
+<br />
+DATA: GT_MAKT TYPE TABLE OF MAKT,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GT_LFA1&nbsp;TYPE&nbsp;TABLE&nbsp;OF&nbsp;LFA1.<br />
+<br />
+DATA: GT_FCAT TYPE LVC_T_FCAT,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_FCAT&nbsp;TYPE&nbsp;LVC_S_FCAT.<br />
+<br />
+DATA: GS_LAYOUT TYPE LVC_S_LAYO.<br />
+<br />
+<br />
+SELECTION-SCREEN: BEGIN OF BLOCK  B1 WITH FRAME TITLE TEXT-001.<br />
+   </div>
+   <div class="codeComment">
+*SELECT&nbsp;OPTIONS<br />
+   </div>
+   <div class="code">
+SELECT-OPTIONS : COMPANY FOR  EKPO-BUKRS OBLIGATORY NO INTERVALS NO-EXTENSION,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"OBLIGATORY&nbsp;##&nbsp;#&nbsp;##<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PLANT&nbsp;FOR&nbsp;&nbsp;EKPO-WERKS,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MATERIAL&nbsp;FOR&nbsp;EKPO-MATNR,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VENDOR&nbsp;FOR&nbsp;EKKO-LIFNR,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;P_ORDER&nbsp;FOR&nbsp;EKPO-EBELN,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;P_ORG&nbsp;FOR&nbsp;EKKO-EKORG,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;P_GROUP&nbsp;FOR&nbsp;EKKO-EKGRP.<br />
+<br />
+SELECTION-SCREEN: END OF BLOCK B1.<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>
+   <tr>
+<td class="footer">Extracted by Mass Download version 1.5.5 - E.G.Mellodew. 1998-2020. Sap Release 751</td>
+   </tr>
+</table>
+</body>
+</html>
