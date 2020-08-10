@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=ISO-8859-1" />
+<title>Z_R05_0030_F01</title>
+<style type="text/css">
+.code{ font-family:"Courier New", Courier, monospace; color:#000; font-size:14px; background-color:#F2F4F7 }
+  .codeComment {font-family:"Courier New", Courier, monospace; color:#0000F0; font-size:14px; background-color:#F2F4F7 }
+  .normalBold{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; font-weight:800 }
+  .normalBoldLarge{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+</style>
+<style type="text/css">
+  .normal{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px }
+  .footer{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; text-align: center }
+  h2{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+  h3{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:14px; font-weight:800 }
+  .outerTable{
+   background-color:#E0E7ED;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-right-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+  .innerTable{
+   background-color:#F2F4F7;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-bottom-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+</style>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: Z_R05_0030_F01</h2>
+<h3> Description: Include Z_R05_0030_F01</h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Include&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Z_R05_0030_F01<br />
+*&---------------------------------------------------------------------*<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;CREATE_MATERIAL<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;--&gt;&nbsp;&nbsp;p1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&&nbsp;&lt;--&nbsp;&nbsp;p2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM CREATE_MATERIAL .<br />
+   </div>
+   <div class="codeComment">
+*GT_BDC#&nbsp;###&nbsp;##&nbsp;##&nbsp;-&nbsp;BDC#&nbsp;##&nbsp;INTERNAL&nbsp;TABLE##&nbsp;##<br />
+*GT_BDC#&nbsp;##&nbsp;PROGRAM&nbsp;DYNPRO&nbsp;DYNBEGIN&nbsp;FNAM&nbsp;FVAL<br />
+*#####&nbsp;####&nbsp;##&nbsp;####&nbsp;###&nbsp;##<br />
+*02<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;CLEAR&nbsp;GT_BDC.<br />
+<br />
+&nbsp;&nbsp;PERFORM&nbsp;SET_BDC_TAB&nbsp;USING&nbsp;:&nbsp;'SAPLMGMM'&nbsp;'0060'&nbsp;'X'&nbsp;''&nbsp;'',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;''&nbsp;''&nbsp;''&nbsp;'BDC_OKCODE'&nbsp;'=ENTR',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;''&nbsp;''&nbsp;''&nbsp;'RMMG1-MATNR'&nbsp;P_MATNR,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;''&nbsp;''&nbsp;''&nbsp;'RMMG1-MBRSH'&nbsp;'M',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;''&nbsp;''&nbsp;''&nbsp;'RMMG1-MTART'&nbsp;'FERT'.<br />
+<br />
+PERFORM SET_BDC_TAB USING : 'SAPLMGMM' '0070' 'X' '' '',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;''&nbsp;''&nbsp;''&nbsp;'BDC_OKCODE'&nbsp;'=ENTR',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;''&nbsp;''&nbsp;''&nbsp;'MSICHTAUSW-KZSEL(01)'&nbsp;'X'.<br />
+<br />
+PERFORM SET_BDC_TAB USING : 'SAPLMGMM' '4004' 'X' '' '',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;''&nbsp;''&nbsp;''&nbsp;'BDC_OKCODE'&nbsp;'=BU',<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;''&nbsp;''&nbsp;''&nbsp;'MAKT-MAKTX'&nbsp;P_MAKTX,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;''&nbsp;''&nbsp;''&nbsp;'MARA-MEINS'&nbsp;'EA'.<br />
+   </div>
+   <div class="codeComment">
+**01<br />
+*CLEAR&nbsp;GS_BDC.<br />
+*GS_BDC-PROGRAM&nbsp;=&nbsp;'SAPLMGMM'.<br />
+*GS_BDC-DYNPRO&nbsp;=&nbsp;'0060'.<br />
+*GS_BDC-DYNBEGIN&nbsp;=&nbsp;'X'.<br />
+*APPEND&nbsp;GS_BDC&nbsp;TO&nbsp;GT_BDC.<br />
+*<br />
+*CLEAR&nbsp;GS_BDC.<br />
+*GS_BDC-FNAM&nbsp;=&nbsp;'BDC_OKCODE'.<br />
+*GS_BDC-FVAL&nbsp;=&nbsp;'=ENTR'.<br />
+*APPEND&nbsp;GS_BDC&nbsp;TO&nbsp;GT_BDC.<br />
+*<br />
+*CLEAR&nbsp;GS_BDC.<br />
+*GS_BDC-FNAM&nbsp;=&nbsp;'RMMG1-MATNR'.<br />
+*GS_BDC-FVAL&nbsp;=&nbsp;P_MATNR.<br />
+*APPEND&nbsp;GS_BDC&nbsp;TO&nbsp;GT_BDC.<br />
+*<br />
+*CLEAR&nbsp;GS_BDC.<br />
+*GS_BDC-FNAM&nbsp;=&nbsp;'RMMG1-MBRSH'.<br />
+*GS_BDC-FVAL&nbsp;=&nbsp;'M'.<br />
+*APPEND&nbsp;GS_BDC&nbsp;TO&nbsp;GT_BDC.<br />
+*<br />
+*CLEAR&nbsp;GS_BDC.<br />
+*GS_BDC-FNAM&nbsp;=&nbsp;'RMMG1-MTART'.<br />
+*GS_BDC-FVAL&nbsp;=&nbsp;'FERT'.<br />
+*APPEND&nbsp;GS_BDC&nbsp;TO&nbsp;GT_BDC.<br />
+*<br />
+*CLEAR&nbsp;GS_BDC.<br />
+*GS_BDC-PROGRAM&nbsp;=&nbsp;'SAPLMGMM'.<br />
+*GS_BDC-DYNPRO&nbsp;=&nbsp;'0070'.<br />
+*GS_BDC-DYNBEGIN&nbsp;=&nbsp;'X'.<br />
+*APPEND&nbsp;GS_BDC&nbsp;TO&nbsp;GT_BDC.<br />
+*<br />
+*CLEAR&nbsp;GS_BDC.<br />
+*GS_BDC-FNAM&nbsp;=&nbsp;'BDC_OKCODE'.<br />
+*GS_BDC-FVAL&nbsp;=&nbsp;'=ENTR'.<br />
+*APPEND&nbsp;GS_BDC&nbsp;TO&nbsp;GT_BDC.<br />
+*<br />
+*CLEAR&nbsp;GS_BDC.<br />
+*GS_BDC-FNAM&nbsp;=&nbsp;'MSICHTAUSW-KZSEL(01)'.<br />
+*GS_BDC-FVAL&nbsp;=&nbsp;'X'.<br />
+*APPEND&nbsp;GS_BDC&nbsp;TO&nbsp;GT_BDC.<br />
+*<br />
+*CLEAR&nbsp;GS_BDC.<br />
+*GS_BDC-PROGRAM&nbsp;=&nbsp;'SAPLMGMM'.<br />
+*GS_BDC-DYNPRO&nbsp;=&nbsp;'4004'.<br />
+*GS_BDC-DYNBEGIN&nbsp;=&nbsp;'X'.<br />
+*APPEND&nbsp;GS_BDC&nbsp;TO&nbsp;GT_BDC.<br />
+*<br />
+*CLEAR&nbsp;GS_BDC.<br />
+*GS_BDC-FNAM&nbsp;=&nbsp;'BDC_OKCODE'.<br />
+*GS_BDC-FVAL&nbsp;=&nbsp;'=BU'.<br />
+*APPEND&nbsp;GS_BDC&nbsp;TO&nbsp;GT_BDC.<br />
+*<br />
+*CLEAR&nbsp;GS_BDC.<br />
+*GS_BDC-FNAM&nbsp;=&nbsp;'MAKT-MAKTX'.<br />
+*GS_BDC-FVAL&nbsp;=&nbsp;P_MAKTX.&nbsp;"'###&nbsp;##'#&nbsp;#####&nbsp;##.<br />
+*APPEND&nbsp;GS_BDC&nbsp;TO&nbsp;GT_BDC.<br />
+*<br />
+*CLEAR&nbsp;GS_BDC.<br />
+*GS_BDC-FNAM&nbsp;=&nbsp;'MARA-MEINS'.<br />
+*GS_BDC-FVAL&nbsp;=&nbsp;'EA'.<br />
+*APPEND&nbsp;GS_BDC&nbsp;TO&nbsp;GT_BDC.<br />
+<br />
+<br />
+<br />
+   </div>
+   <div class="code">
+CLEAR GS_OPT.<br />
+GS_OPT-DISMODE = 'N'. "A##, -  BDC# ### # #### ##<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"N##-####&nbsp;#&nbsp;#####&nbsp;####&nbsp;##(#######&nbsp;##)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"E##&nbsp;-&nbsp;#######&nbsp;#####&nbsp;#####&nbsp;####&nbsp;###"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"##&nbsp;###&nbsp;###&nbsp;#####&nbsp;N###&nbsp;####&nbsp;##,&nbsp;#####&nbsp;A,E#&nbsp;##"<br />
+GS_OPT-UPDMODE = 'S'.<br />
+<br />
+<br />
+"CALL TRANSACTION# ## KEY## ### #### ## OPTIONS FROM/MESSAGE INTO# ##<br />
+   </div>
+   <div class="codeComment">
+*###&nbsp;###&nbsp;###&nbsp;####&nbsp;##.&nbsp;##&nbsp;####&nbsp;TOP##&nbsp;##&nbsp;####.<br />
+<br />
+<br />
+   </div>
+   <div class="code">
+CALL TRANSACTION 'MM01' USING GT_BDC<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OPTIONS&nbsp;FROM&nbsp;GS_OPT<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MESSAGES&nbsp;INTO&nbsp;GT_MSG.<br />
+<br />
+READ TABLE GT_MSG INTO GS_MSG WITH KEY MSGID = 'M3' "Batch input message ID<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MSGNR&nbsp;=&nbsp;'800'.&nbsp;"Batch&nbsp;input&nbsp;message&nbsp;number<br />
+<br />
+IF SY-SUBRC  = 0.<br />
+   </div>
+   <div class="codeComment">
+*##&nbsp;##<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;MESSAGE&nbsp;S009&nbsp;WITH&nbsp;P_MATNR.&nbsp;"&nbsp;####&nbsp;&&nbsp;#&nbsp;#######.<br />
+ELSE.<br />
+   </div>
+   <div class="codeComment">
+*####<br />
+<br />
+   </div>
+   <div class="code">
+ENDIF.<br />
+<br />
+<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;SET_BDC_TAB<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM SET_BDC_TAB  USING  P_PROGRAM<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;P_DYNPRO<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;P_DYNGEGIN<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;P_FNAME<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;P_EVAL.<br />
+<br />
+&nbsp;&nbsp;CLEAR&nbsp;GS_BDC.<br />
+&nbsp;&nbsp;GS_BDC-PROGRAM&nbsp;=&nbsp;P_PROGRAM.<br />
+&nbsp;&nbsp;GS_BDC-DYNPRO&nbsp;=&nbsp;P_DYNPRO.<br />
+&nbsp;&nbsp;GS_BDC-DYNBEGIN&nbsp;=&nbsp;P_DYNGEGIN.<br />
+&nbsp;&nbsp;GS_BDC-FNAM&nbsp;=&nbsp;P_FNAME.<br />
+&nbsp;&nbsp;GS_BDC-FVAL&nbsp;=&nbsp;P_EVAL.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;APPEND&nbsp;GS_BDC&nbsp;TO&nbsp;GT_BDC.<br />
+<br />
+<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;MESSAGE_TEST<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;--&gt;&nbsp;&nbsp;p1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&&nbsp;&lt;--&nbsp;&nbsp;p2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*FORM&nbsp;MESSAGE_TEST&nbsp;.<br />
+*<br />
+*&nbsp;&nbsp;&nbsp;MESSAGE&nbsp;S000&nbsp;WITH&nbsp;'AAA'&nbsp;'BBB'&nbsp;'CCC'&nbsp;'DDD'.<br />
+*&nbsp;&nbsp;&nbsp;MESSAGE&nbsp;S008&nbsp;WITH&nbsp;P_MATNR.<br />
+*<br />
+*ENDFORM.<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>
+   <tr>
+<td class="footer">Extracted by Mass Download version 1.5.5 - E.G.Mellodew. 1998-2020. Sap Release 751</td>
+   </tr>
+</table>
+</body>
+</html>
