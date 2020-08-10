@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=ISO-8859-1" />
+<title>Z_0625_0503</title>
+<style type="text/css">
+.code{ font-family:"Courier New", Courier, monospace; color:#000; font-size:14px; background-color:#F2F4F7 }
+  .codeComment {font-family:"Courier New", Courier, monospace; color:#0000F0; font-size:14px; background-color:#F2F4F7 }
+  .normalBold{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; font-weight:800 }
+  .normalBoldLarge{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+</style>
+<style type="text/css">
+  .normal{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px }
+  .footer{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; text-align: center }
+  h2{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+  h3{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:14px; font-weight:800 }
+  .outerTable{
+   background-color:#E0E7ED;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-right-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+  .innerTable{
+   background-color:#F2F4F7;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-bottom-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+</style>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: Z_0625_0503</h2>
+<h3> Description: Report Z_0625_0503</h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Report&nbsp;Z_0625_0503<br />
+*&---------------------------------------------------------------------*<br />
+*&<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+REPORT Z_0625_0503.<br />
+<br />
+<br />
+TYPE-POOLS:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ICON,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;COL.<br />
+<br />
+CONSTANTS:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GC_LIMIT_RED&nbsp;TYPE&nbsp;ZS_FLGHTOCC&nbsp;VALUE&nbsp;98,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GC_LIMIT_YELLOW&nbsp;TYPE&nbsp;ZS_FLGHTOCC&nbsp;VALUE&nbsp;75,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GC_ACTVT_DISPLAY&nbsp;TYPE&nbsp;ACTIV_AUTH&nbsp;VALUE&nbsp;'03'.<br />
+<br />
+DATA:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GT_FLIGHTS&nbsp;TYPE&nbsp;ZBC400_T_FLIGHTS,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_FLIGHT&nbsp;TYPE&nbsp;ZBC400_S_FLIGHT.<br />
+<br />
+PARAMETERS:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PA_CAR&nbsp;TYPE&nbsp;ZBC400_S_FLIGHT-CARRID.<br />
+<br />
+SELECT-OPTIONS:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SO_CON&nbsp;FOR&nbsp;GS_FLIGHT-CONNID.<br />
+<br />
+INITIALIZATION.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PA_CAR&nbsp;=&nbsp;'LH'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SO_CON-SIGN&nbsp;=&nbsp;'I'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SO_CON-OPTION&nbsp;=&nbsp;'EQ'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SO_CON-LOW&nbsp;=&nbsp;'0017'.<br />
+&nbsp;APPEND&nbsp;SO_CON.<br />
+&nbsp;CLEAR&nbsp;SO_CON.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SO_CON-SIGN&nbsp;=&nbsp;'I'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SO_CON-OPTION&nbsp;=&nbsp;'EQ'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SO_CON-LOW&nbsp;=&nbsp;'0020'.<br />
+&nbsp;&nbsp;APPEND&nbsp;SO_CON.<br />
+<br />
+<br />
+AT SELECTION-SCREEN.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TRY.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;METHOD&nbsp;ZCL_BC400_FLIGHTMODEL=&gt;CHECK_AUTHORITY<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IV_CARRID&nbsp;&nbsp;&nbsp;=&nbsp;PA_CAR<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IV_ACTIVITY&nbsp;=&nbsp;GC_ACTVT_DISPLAY.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CATCH&nbsp;ZCX_BC400_NO_AUTH&nbsp;.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MESSAGE&nbsp;E046(BC400)&nbsp;WITH&nbsp;PA_CAR.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDTRY.<br />
+<br />
+START-OF-SELECTION.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TRY.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;METHOD&nbsp;ZCL_BC400_FLIGHTMODEL=&gt;GET_FLIGHTS_RANGE<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IV_CARRID&nbsp;&nbsp;=&nbsp;PA_CAR<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IT_CONNID&nbsp;&nbsp;=&nbsp;SO_CON[]&nbsp;"BRACKETS&nbsp;NEEDED&nbsp;FOR&nbsp;SO_CON"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IMPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ET_FLIGHTS&nbsp;=&nbsp;GT_FLIGHTS.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CATCH&nbsp;ZCX_BC400_NO_DATA&nbsp;.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WRITE&nbsp;/&nbsp;'NO&nbsp;FLIGHTS&nbsp;FOR&nbsp;THE&nbsp;SELECTED&nbsp;FLIGHT&nbsp;CONNECTION'.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDTRY.<br />
+<br />
+LOOP AT GT_FLIGHTS INTO GS_FLIGHT.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NEW-LINE.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;GS_FLIGHT-PERCENTAGE&nbsp;&gt;=&nbsp;GC_LIMIT_RED.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WRITE&nbsp;ICON_RED_LIGHT&nbsp;AS&nbsp;ICON.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;GS_FLIGHT-PERCENTAGE&nbsp;&gt;=&nbsp;GC_LIMIT_YELLOW.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WRITE&nbsp;ICON_YELLOW_LIGHT&nbsp;AS&nbsp;ICON.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSE.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WRITE&nbsp;ICON_GREEN_LIGHT&nbsp;AS&nbsp;ICON.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WRITE:/<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_FLIGHT-CARRID&nbsp;COLOR&nbsp;COL_KEY,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_FLIGHT-CONNID&nbsp;COLOR&nbsp;COL_KEY,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_FLIGHT-FLDATE&nbsp;COLOR&nbsp;COL_KEY,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_FLIGHT-SEATSMAX,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_FLIGHT-SEATSOCC,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_FLIGHT-PERCENTAGE.<br />
+ENDLOOP.<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>
+   <tr>
+<td class="footer">Extracted by Mass Download version 1.5.5 - E.G.Mellodew. 1998-2020. Sap Release 751</td>
+   </tr>
+</table>
+</body>
+</html>

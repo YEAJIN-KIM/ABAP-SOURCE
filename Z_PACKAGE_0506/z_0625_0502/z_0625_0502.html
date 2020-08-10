@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=ISO-8859-1" />
+<title>Z_0625_0502</title>
+<style type="text/css">
+.code{ font-family:"Courier New", Courier, monospace; color:#000; font-size:14px; background-color:#F2F4F7 }
+  .codeComment {font-family:"Courier New", Courier, monospace; color:#0000F0; font-size:14px; background-color:#F2F4F7 }
+  .normalBold{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; font-weight:800 }
+  .normalBoldLarge{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+</style>
+<style type="text/css">
+  .normal{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px }
+  .footer{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; text-align: center }
+  h2{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+  h3{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:14px; font-weight:800 }
+  .outerTable{
+   background-color:#E0E7ED;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-right-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+  .innerTable{
+   background-color:#F2F4F7;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-bottom-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+</style>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: Z_0625_0502</h2>
+<h3> Description: Program Z_0625_0502</h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Report&nbsp;Z_0625_0502<br />
+*&---------------------------------------------------------------------*<br />
+*&<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+REPORT Z_0625_0502.<br />
+   </div>
+   <div class="codeComment">
+*EVENT#&nbsp;####&nbsp;####&nbsp;/&nbsp;####&nbsp;###&nbsp;EXCUTABLE&nbsp;PROGRAM<br />
+*####&nbsp;####&nbsp;###&nbsp;###&nbsp;####&nbsp;##.<br />
+*PROGRAM&nbsp;START&nbsp;&nbsp;=&nbsp;REPORT...<br />
+*INITIALIZATION<br />
+*AT&nbsp;SELECTION-SCREEN<br />
+*START&nbsp;OF&nbsp;SELECTION<br />
+*DISPLAY&nbsp;LISR&nbsp;BUFFER&nbsp;AS&nbsp;LIST<br />
+*##&nbsp;###&nbsp;####&nbsp;##&nbsp;######&nbsp;###&nbsp;####&nbsp;###&nbsp;####&nbsp;##&nbsp;###&nbsp;###&nbsp;#####.<br />
+<br />
+   </div>
+   <div class="code">
+PARAMETERS: PA_CAR TYPE S_CARR_ID.<br />
+<br />
+<br />
+INITIALIZATION.<br />
+   </div>
+   <div class="codeComment">
+*##&nbsp;###&nbsp;####&nbsp;####&nbsp;####.&nbsp;|&nbsp;##&nbsp;###&nbsp;####&nbsp;#<br />
+*SELECTION&nbsp;SCREEN&nbsp;###&nbsp;###&nbsp;##&nbsp;##&nbsp;##&nbsp;##&nbsp;###&nbsp;###&nbsp;##&nbsp;####.<br />
+*###&nbsp;###&nbsp;##&nbsp;DEFAULT&nbsp;##&nbsp;####.<br />
+*#&nbsp;####&nbsp;##&nbsp;####&nbsp;##&nbsp;####&nbsp;####&nbsp;##.<br />
+<br />
+   </div>
+   <div class="code">
+PA_CAR ='LH'.<br />
+<br />
+AT SELECTION-SCREEN.<br />
+   </div>
+   <div class="codeComment">
+*INPUT&nbsp;CHECK&nbsp;|&nbsp;####&nbsp;##<br />
+*##&nbsp;AT&nbsp;SELECTION-SCREEN&nbsp;##&nbsp;ERROR&nbsp;MESSAGE&nbsp;###&nbsp;&nbsp;##&nbsp;####&nbsp;###<br />
+*####&nbsp;SELECTION&nbsp;SCREEN#&nbsp;##&nbsp;####&nbsp;#/##&nbsp;####.<br />
+*SELECTION-SCREEN&nbsp;##&nbsp;INPUT&nbsp;FIELD&nbsp;##&nbsp;##&nbsp;####&nbsp;#&nbsp;####&nbsp;###<br />
+*###&nbsp;###&nbsp;##&nbsp;####&nbsp;##&nbsp;###&nbsp;####.<br />
+<br />
+<br />
+   </div>
+   <div class="code">
+START-OF-SELECTION.<br />
+   </div>
+   <div class="codeComment">
+*START&nbsp;OF&nbsp;SELECTION&nbsp;###&nbsp;SQL&nbsp;#&nbsp;&nbsp;##<br />
+*START&nbsp;OF&nbsp;SELECTION&nbsp;##&nbsp;ERROR&nbsp;MESSAGE&nbsp;##&nbsp;#&nbsp;&nbsp;PROGRAM&nbsp;##<br />
+*####&nbsp;F8&nbsp;##&nbsp;###&nbsp;####&nbsp;LDB&nbsp;########&nbsp;##&nbsp;####.<br />
+*#####&nbsp;SELECT&nbsp;###&nbsp;####&nbsp;####&nbsp;LDB#&nbsp;###&nbsp;REPORT&nbsp;###&nbsp;GET&nbsp;TABLE#&nbsp;####.<br />
+*##&nbsp;###&nbsp;###&nbsp;##&nbsp;##&nbsp;#&nbsp;##&nbsp;#&nbsp;###&nbsp;##&nbsp;VALIDATION#&nbsp;####&nbsp;DATA#&nbsp;####&nbsp;##&nbsp;##<br />
+*LDB#&nbsp;###&nbsp;#####&nbsp;GET&nbsp;###&nbsp;,&nbsp;##&nbsp;#######&nbsp;SQL&nbsp;###&nbsp;####.<br />
+*###&nbsp;###&nbsp;##&nbsp;SAPGUI_PROGRESS_INDICATOR&nbsp;###&nbsp;###&nbsp;#####&nbsp;###&nbsp;#&nbsp;##.<br />
+<br />
+<br />
+   </div>
+   <div class="code">
+END-OF-SELECTION.<br />
+   </div>
+   <div class="codeComment">
+*##&nbsp;##<br />
+*##&nbsp;####&nbsp;####&nbsp;###&nbsp;#####&nbsp;SELECT&nbsp;####&nbsp;##&nbsp;DATA#&nbsp;##&nbsp;#&nbsp;###&nbsp;WRITE&nbsp;##&nbsp;#&nbsp;####.<br />
+*INTERNAL&nbsp;TABLE#&nbsp;###&nbsp;DATA##&nbsp;####&nbsp;###&nbsp;#&nbsp;#&nbsp;##.<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>
+   <tr>
+<td class="footer">Extracted by Mass Download version 1.5.5 - E.G.Mellodew. 1998-2020. Sap Release 751</td>
+   </tr>
+</table>
+</body>
+</html>
