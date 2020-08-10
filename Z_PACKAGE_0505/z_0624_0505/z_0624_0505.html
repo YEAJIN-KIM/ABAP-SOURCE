@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=ISO-8859-1" />
+<title>Z_0624_0505</title>
+<style type="text/css">
+.code{ font-family:"Courier New", Courier, monospace; color:#000; font-size:14px; background-color:#F2F4F7 }
+  .codeComment {font-family:"Courier New", Courier, monospace; color:#0000F0; font-size:14px; background-color:#F2F4F7 }
+  .normalBold{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; font-weight:800 }
+  .normalBoldLarge{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+</style>
+<style type="text/css">
+  .normal{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px }
+  .footer{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; text-align: center }
+  h2{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+  h3{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:14px; font-weight:800 }
+  .outerTable{
+   background-color:#E0E7ED;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-right-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+  .innerTable{
+   background-color:#F2F4F7;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-bottom-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+</style>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: Z_0624_0505</h2>
+<h3> Description: Program Z_0624_0505</h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Report&nbsp;Z_0624_0505<br />
+*&---------------------------------------------------------------------*<br />
+*&<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+REPORT Z_0624_0505.<br />
+<br />
+   </div>
+   <div class="codeComment">
+*INTERNAL&nbsp;TABLE##&nbsp;DATA#&nbsp;####&nbsp;####&nbsp;2##&nbsp;###&nbsp;##.<br />
+*#&nbsp;##&nbsp;RECORD#&nbsp;##&nbsp;READ&nbsp;TABLE#&nbsp;####.<br />
+*####&nbsp;MULTI&nbsp;RECORD#&nbsp;##&nbsp;LOOP&nbsp;AT&nbsp;ITAB&nbsp;~&nbsp;END&nbsp;LOOP&nbsp;#&nbsp;####.<br />
+*INDEX#&nbsp;####&nbsp;###&nbsp;#&nbsp;###&nbsp;##&nbsp;#&nbsp;##.<br />
+*APPEND#&nbsp;###&nbsp;ROW#&nbsp;####&nbsp;INSERT#&nbsp;INDEX#&nbsp;###&nbsp;###&nbsp;####.<br />
+*MODIFY&nbsp;#&nbsp;###&nbsp;#&nbsp;####&nbsp;###&nbsp;###&nbsp;ROW#&nbsp;####.<br />
+*DELETE#&nbsp;##&nbsp;#&nbsp;####&nbsp;#&nbsp;##&nbsp;###&nbsp;#&nbsp;##&nbsp;####.<br />
+<br />
+*TABLE#&nbsp;&nbsp;STRUCTURE#&nbsp;###&nbsp;STRUCTURE#&nbsp;###&nbsp;KEY#&nbsp;####&nbsp;###&nbsp;COMPONENT#&nbsp;COM[PNENT&nbsp;TYPE#&nbsp;####.<br />
+*ABAP#&nbsp;OPEN&nbsp;SQL#&nbsp;DB&nbsp;INTERFACE#&nbsp;##&nbsp;SQL#&nbsp;#####.<br />
+*OPEN&nbsp;SQL#&nbsp;####&nbsp;SQL####.<br />
+*BAPI#&nbsp;BUSINESS&nbsp;FUNCTION#&nbsp;####.<br />
+<br />
+*SQL#&nbsp;WHERE&nbsp;####&nbsp;###&nbsp;STRUCTURE#&nbsp;###&nbsp;#&nbsp;###&nbsp;MULTI&nbsp;##&nbsp;##&nbsp;TABLE&nbsp;#&nbsp;##&nbsp;####.<br />
+*LINE&nbsp;TYPE&nbsp;#&nbsp;##&nbsp;##&nbsp;&nbsp;CORRESPONDING&nbsp;###&nbsp;####.<br />
+<br />
+<br />
+   </div>
+   <div class="code">
+PARAMETERS: PA_CARR TYPE  ZBC400_S_CONNECTION-CARRID,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PA_CONN&nbsp;TYPE&nbsp;&nbsp;ZBC400_S_CONNECTION-CONNID.<br />
+<br />
+DATA: GS_CONNECTION TYPE ZBC400_S_CONNECTION.<br />
+<br />
+<br />
+CALL FUNCTION 'Z_BC400_SL_05_GOCONNECTION'<br />
+&nbsp;&nbsp;EXPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;IV_CARRID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;PA_CARR<br />
+&nbsp;&nbsp;&nbsp;IV_CONNID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;PA_CONN<br />
+&nbsp;IMPORTING<br />
+&nbsp;&nbsp;&nbsp;ES_CONNECTION&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;GS_CONNECTION<br />
+&nbsp;EXCEPTIONS<br />
+&nbsp;&nbsp;&nbsp;NO_DATA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1<br />
+&nbsp;&nbsp;&nbsp;OTHERS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<br />
+IF SY-SUBRC &lt;&gt; 0.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;Implement&nbsp;suitable&nbsp;error&nbsp;handling&nbsp;here<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;WRITE&nbsp;:&nbsp;/&nbsp;'NO&nbsp;DATA'.<br />
+ELSEIF SY-SUBRC = 0.<br />
+&nbsp;&nbsp;&nbsp;WRITE:&nbsp;/&nbsp;GS_CONNECTION-CARRID,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_CONNECTION-CONNID,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_CONNECTION-AIRPFROM,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_CONNECTION-AIRPTO,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_CONNECTION-ARRTIME,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_CONNECTION-DEPTIME,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_CONNECTION-FLTIME.<br />
+ENDIF.<br />
+<br />
+<br />
+<br />
+<br />
+   </div>
+   <div class="codeComment">
+*CALL&nbsp;FUNCTION&nbsp;'Z_BC400_SL_05_GOCONNECTION'<br />
+*&nbsp;&nbsp;EXPORTING<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;IV_CARRID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;PA_CARR<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;IV_CONNID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;PA_CONN<br />
+*<br />
+*&nbsp;IMPORTING<br />
+*&nbsp;&nbsp;&nbsp;ES_CONNECTION&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;GS_CONNECTION<br />
+*&nbsp;EXCEPTIONS<br />
+*&nbsp;&nbsp;&nbsp;NO_DATA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;1<br />
+*&nbsp;&nbsp;&nbsp;OTHERS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;2&nbsp;.<br />
+*<br />
+*<br />
+*IF&nbsp;SY-SUBRC&nbsp;&nbsp;&lt;&gt;&nbsp;0.<br />
+**&nbsp;Implement&nbsp;suitable&nbsp;error&nbsp;handling&nbsp;here<br />
+*&nbsp;&nbsp;WRITE&nbsp;:&nbsp;/&nbsp;'NO&nbsp;DATA'.<br />
+*ELSEIF&nbsp;SY-SUBRC&nbsp;=&nbsp;0.<br />
+*&nbsp;&nbsp;&nbsp;WRITE:&nbsp;/&nbsp;GS_CONNECTION-CARRID,<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_CONNECTION-CONNID,<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_CONNECTION-AIRPFROM,<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_CONNECTION-AIRPTO,<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_CONNECTION-ARRTIME,<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_CONNECTION-DEPTIME,<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_CONNECTION-FLTIME.<br />
+*ENDIF.<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>
+   <tr>
+<td class="footer">Extracted by Mass Download version 1.5.5 - E.G.Mellodew. 1998-2020. Sap Release 751</td>
+   </tr>
+</table>
+</body>
+</html>
