@@ -1,0 +1,40 @@
+*&---------------------------------------------------------------------*
+*& Include          Z_PTJ01_052_TOP
+*&---------------------------------------------------------------------*
+
+TABLES: EKKO, EKPO.
+
+DATA OK_CODE TYPE SY-UCOMM.
+
+DATA: BEGIN OF GS_DISP_T,
+           EBELN TYPE EKKO-EBELN,
+           BUKRS TYPE EKKO-BUKRS,
+           LIFNR TYPE EKKO-LIFNR,
+           END OF GS_DISP_T.
+
+DATA GT_DISP_T LIKE TABLE OF GS_DISP_T.
+
+DATA: BEGIN OF GS_DISP_B,
+           EBELN TYPE EKKO-EBELN,
+           EBELP TYPE EKPO-EBELP,
+           MATNR TYPE EKPO-MATNR,
+           MENGE TYPE EKPO-MENGE,
+           MEINS TYPE EKPO-MEINS,
+           END OF GS_DISP_B.
+
+DATA GT_DISP_B LIKE TABLE OF GS_DISP_B.
+
+
+DATA: GO_DOCK TYPE REF TO CL_GUI_DOCKING_CONTAINER,
+           GO_SPLITTER TYPE REF TO CL_GUI_SPLITTER_CONTAINER,
+           GO_CONT1 TYPE REF TO CL_GUI_CONTAINER,
+           GO_CONT2 TYPE REF TO CL_GUI_CONTAINER,
+           GO_ALV TYPE REF TO CL_GUI_ALV_GRID,
+           GO_ALV2 TYPE REF TO CL_GUI_ALV_GRID.
+
+DATA: GS_FCAT TYPE LVC_S_FCAT,
+           GT_FCAT1 TYPE LVC_T_FCAT,
+           GT_FCAT2 TYPE LVC_T_FCAT.
+
+DATA: GS_LAYOUT1 TYPE LVC_S_LAYO,
+           GS_LAYOUT2 TYPE LVC_S_LAYO.

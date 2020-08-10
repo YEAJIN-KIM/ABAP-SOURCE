@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZM05</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZM05</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>&amp; &amp; &amp; &amp;</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZM05</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>DATA SAVE</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZM05</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>ERROR!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZM05</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>PLEASE SELECT LINE</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZM05</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>퇴사일이 입사일 이후 입니다!</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZM05</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>NO CHANGED DATA</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZM05</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>ERROR DATA EXIST !</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZM05</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>자재코드  &amp; 생성 중 오류가 발생하였습니다 !</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZM05</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>자재코드 &amp; 가 생성되었습니다</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZM05</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>업로드 중 오류가 발생하였습니다!</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>
