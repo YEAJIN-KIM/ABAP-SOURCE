@@ -1,0 +1,813 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=ISO-8859-1" />
+<title>Z_MM_SL00_F01</title>
+<style type="text/css">
+.code{ font-family:"Courier New", Courier, monospace; color:#000; font-size:14px; background-color:#F2F4F7 }
+  .codeComment {font-family:"Courier New", Courier, monospace; color:#0000F0; font-size:14px; background-color:#F2F4F7 }
+  .normalBold{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; font-weight:800 }
+  .normalBoldLarge{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+</style>
+<style type="text/css">
+  .normal{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px }
+  .footer{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; text-align: center }
+  h2{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+  h3{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:14px; font-weight:800 }
+  .outerTable{
+   background-color:#E0E7ED;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-right-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+  .innerTable{
+   background-color:#F2F4F7;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-bottom-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+</style>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: Z_MM_SL00_F01</h2>
+<h3> Description: Include Z_MM_SL00_F01</h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*----------------------------------------------------------------------*<br />
+***INCLUDE&nbsp;Z_MM_SL00_F01.<br />
+*----------------------------------------------------------------------*<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;MAKE_FCAT<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;--&gt;&nbsp;&nbsp;p1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&&nbsp;&lt;--&nbsp;&nbsp;p2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM make_fcat .<br />
+<br />
+&nbsp;&nbsp;gs_fcat-fieldname&nbsp;=&nbsp;'EBELN'.<br />
+&nbsp;&nbsp;gs_fcat-ref_field&nbsp;=&nbsp;'EBELN'.<br />
+&nbsp;&nbsp;gs_fcat-ref_table&nbsp;=&nbsp;'EKPO'.<br />
+&nbsp;&nbsp;gs_fcat-coltext&nbsp;=&nbsp;'Purchasing&nbsp;No.'.<br />
+&nbsp;&nbsp;gs_fcat-fix_column&nbsp;=&nbsp;'X'.<br />
+&nbsp;&nbsp;gs_fcat-hotspot&nbsp;=&nbsp;'X'.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fcat&nbsp;TO&nbsp;gt_fcat.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_fcat.<br />
+<br />
+&nbsp;&nbsp;gs_fcat-fieldname&nbsp;=&nbsp;'EBELP'.<br />
+&nbsp;&nbsp;gs_fcat-ref_field&nbsp;=&nbsp;'EBELP'.<br />
+&nbsp;&nbsp;gs_fcat-ref_table&nbsp;=&nbsp;'EKPO'.<br />
+&nbsp;&nbsp;gs_fcat-coltext&nbsp;=&nbsp;'Item'.<br />
+&nbsp;&nbsp;gs_fcat-fix_column&nbsp;=&nbsp;'X'.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fcat&nbsp;TO&nbsp;gt_fcat.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_fcat.<br />
+<br />
+&nbsp;&nbsp;gs_fcat-fieldname&nbsp;=&nbsp;'LIFNR'.<br />
+&nbsp;&nbsp;gs_fcat-ref_field&nbsp;=&nbsp;'LIFNR'.<br />
+&nbsp;&nbsp;gs_fcat-ref_table&nbsp;=&nbsp;'EKKO'.<br />
+&nbsp;&nbsp;gs_fcat-coltext&nbsp;=&nbsp;'Vendor'.<br />
+&nbsp;&nbsp;gs_fcat-fix_column&nbsp;=&nbsp;'X'.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fcat&nbsp;TO&nbsp;gt_fcat.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_fcat.<br />
+<br />
+&nbsp;&nbsp;gs_fcat-fieldname&nbsp;=&nbsp;'NAME'.<br />
+&nbsp;&nbsp;gs_fcat-ref_field&nbsp;=&nbsp;'NAME1'.<br />
+&nbsp;&nbsp;gs_fcat-ref_table&nbsp;=&nbsp;'LFA1'.<br />
+&nbsp;&nbsp;gs_fcat-coltext&nbsp;=&nbsp;'Name'.<br />
+&nbsp;&nbsp;gs_fcat-fix_column&nbsp;=&nbsp;'X'.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fcat&nbsp;TO&nbsp;gt_fcat.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_fcat.<br />
+<br />
+&nbsp;&nbsp;gs_fcat-fieldname&nbsp;=&nbsp;'MATNR'.<br />
+&nbsp;&nbsp;gs_fcat-ref_field&nbsp;=&nbsp;'MATNR'.<br />
+&nbsp;&nbsp;gs_fcat-ref_table&nbsp;=&nbsp;'MAKT'.<br />
+&nbsp;&nbsp;gs_fcat-coltext&nbsp;=&nbsp;'Material'.<br />
+&nbsp;&nbsp;gs_fcat-fix_column&nbsp;=&nbsp;'X'.<br />
+&nbsp;&nbsp;gs_fcat-hotspot&nbsp;=&nbsp;'X'.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fcat&nbsp;TO&nbsp;gt_fcat.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_fcat.<br />
+<br />
+&nbsp;&nbsp;gs_fcat-fieldname&nbsp;=&nbsp;'MAKTX'.<br />
+&nbsp;&nbsp;gs_fcat-ref_field&nbsp;=&nbsp;'MAKTX'.<br />
+&nbsp;&nbsp;gs_fcat-ref_table&nbsp;=&nbsp;'MAKT'.<br />
+&nbsp;&nbsp;gs_fcat-coltext&nbsp;=&nbsp;'Material&nbsp;description'.<br />
+&nbsp;&nbsp;gs_fcat-fix_column&nbsp;=&nbsp;'X'.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fcat&nbsp;TO&nbsp;gt_fcat.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_fcat.<br />
+<br />
+&nbsp;&nbsp;gs_fcat-fieldname&nbsp;=&nbsp;'WERKS'.<br />
+&nbsp;&nbsp;gs_fcat-ref_field&nbsp;=&nbsp;'WERKS'.<br />
+&nbsp;&nbsp;gs_fcat-ref_table&nbsp;=&nbsp;'EKPO'.<br />
+&nbsp;&nbsp;gs_fcat-coltext&nbsp;=&nbsp;'Plant'.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fcat&nbsp;TO&nbsp;gt_fcat.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_fcat.<br />
+<br />
+&nbsp;&nbsp;gs_fcat-fieldname&nbsp;=&nbsp;'LGORT'.<br />
+&nbsp;&nbsp;gs_fcat-ref_field&nbsp;=&nbsp;'LGORT'.<br />
+&nbsp;&nbsp;gs_fcat-ref_table&nbsp;=&nbsp;'EKPO'.<br />
+&nbsp;&nbsp;gs_fcat-coltext&nbsp;=&nbsp;'Storage&nbsp;Location'.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fcat&nbsp;TO&nbsp;gt_fcat.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_fcat.<br />
+<br />
+&nbsp;&nbsp;gs_fcat-fieldname&nbsp;=&nbsp;'MENGE'.<br />
+&nbsp;&nbsp;gs_fcat-ref_field&nbsp;=&nbsp;'MENGE'.<br />
+&nbsp;&nbsp;gs_fcat-ref_table&nbsp;=&nbsp;'EKPO'.<br />
+&nbsp;&nbsp;gs_fcat-coltext&nbsp;=&nbsp;'Po&nbsp;Quantity'.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fcat&nbsp;TO&nbsp;gt_fcat.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_fcat.<br />
+<br />
+&nbsp;&nbsp;gs_fcat-fieldname&nbsp;=&nbsp;'OPMEN'.<br />
+&nbsp;&nbsp;gs_fcat-ref_field&nbsp;=&nbsp;'MENGE'.<br />
+&nbsp;&nbsp;gs_fcat-ref_table&nbsp;=&nbsp;'EKPO'.<br />
+&nbsp;&nbsp;gs_fcat-coltext&nbsp;=&nbsp;'Open&nbsp;Po&nbsp;Qty'.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fcat&nbsp;TO&nbsp;gt_fcat.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_fcat.<br />
+<br />
+&nbsp;&nbsp;gs_fcat-fieldname&nbsp;=&nbsp;'GRQIN'.<br />
+&nbsp;&nbsp;gs_fcat-ref_field&nbsp;=&nbsp;'MENGE'.<br />
+&nbsp;&nbsp;gs_fcat-ref_table&nbsp;=&nbsp;'EKPO'.<br />
+&nbsp;&nbsp;gs_fcat-edit&nbsp;=&nbsp;'X'.<br />
+&nbsp;&nbsp;gs_fcat-coltext&nbsp;=&nbsp;'GR&nbsp;Process&nbsp;Qty'.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fcat&nbsp;TO&nbsp;gt_fcat.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_fcat.<br />
+<br />
+&nbsp;&nbsp;gs_fcat-fieldname&nbsp;=&nbsp;'MEINS'.<br />
+&nbsp;&nbsp;gs_fcat-ref_field&nbsp;=&nbsp;'MEINS'.<br />
+&nbsp;&nbsp;gs_fcat-ref_table&nbsp;=&nbsp;'EKPO'.<br />
+&nbsp;&nbsp;gs_fcat-coltext&nbsp;=&nbsp;'Unit'.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fcat&nbsp;TO&nbsp;gt_fcat.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_fcat.<br />
+<br />
+&nbsp;&nbsp;gs_fcat-fieldname&nbsp;=&nbsp;'NETPR'.<br />
+&nbsp;&nbsp;gs_fcat-ref_field&nbsp;=&nbsp;'NETPR'.<br />
+&nbsp;&nbsp;gs_fcat-ref_table&nbsp;=&nbsp;'EKPO'.<br />
+&nbsp;&nbsp;gs_fcat-coltext&nbsp;=&nbsp;'Net&nbsp;price'.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fcat&nbsp;TO&nbsp;gt_fcat.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_fcat.<br />
+<br />
+&nbsp;&nbsp;gs_fcat-fieldname&nbsp;=&nbsp;'WAERS'.<br />
+&nbsp;&nbsp;gs_fcat-ref_field&nbsp;=&nbsp;'WAERS'.<br />
+&nbsp;&nbsp;gs_fcat-ref_table&nbsp;=&nbsp;'EKPO'.<br />
+&nbsp;&nbsp;gs_fcat-coltext&nbsp;=&nbsp;'Currency'.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fcat&nbsp;TO&nbsp;gt_fcat.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_fcat.<br />
+<br />
+&nbsp;&nbsp;gs_fcat-fieldname&nbsp;=&nbsp;'POAMT'.<br />
+&nbsp;&nbsp;gs_fcat-ref_field&nbsp;=&nbsp;'DMBTR'.<br />
+&nbsp;&nbsp;gs_fcat-ref_table&nbsp;=&nbsp;'EKBE'.<br />
+&nbsp;&nbsp;gs_fcat-coltext&nbsp;=&nbsp;'PO&nbsp;Amount'.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fcat&nbsp;TO&nbsp;gt_fcat.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_fcat.<br />
+<br />
+&nbsp;&nbsp;gs_fcat-fieldname&nbsp;=&nbsp;'GRDOC'.<br />
+&nbsp;&nbsp;gs_fcat-ref_field&nbsp;=&nbsp;'BELNR'.<br />
+&nbsp;&nbsp;gs_fcat-ref_table&nbsp;=&nbsp;'EKBE'.<br />
+&nbsp;&nbsp;gs_fcat-coltext&nbsp;=&nbsp;'GR&nbsp;DOC'.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fcat&nbsp;TO&nbsp;gt_fcat.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_fcat.<br />
+<br />
+&nbsp;&nbsp;gs_fcat-fieldname&nbsp;=&nbsp;'GYEAR'.<br />
+&nbsp;&nbsp;gs_fcat-ref_field&nbsp;=&nbsp;'GJAHR'.<br />
+&nbsp;&nbsp;gs_fcat-ref_table&nbsp;=&nbsp;'EKBE'.<br />
+&nbsp;&nbsp;gs_fcat-coltext&nbsp;=&nbsp;'YEAR'.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fcat&nbsp;TO&nbsp;gt_fcat.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_fcat.<br />
+<br />
+&nbsp;&nbsp;gs_fcat-fieldname&nbsp;=&nbsp;'BWART'.<br />
+&nbsp;&nbsp;gs_fcat-ref_field&nbsp;=&nbsp;'BWART'.<br />
+&nbsp;&nbsp;gs_fcat-ref_table&nbsp;=&nbsp;'EKBE'.<br />
+<br />
+&nbsp;&nbsp;gs_fcat-no_out&nbsp;=&nbsp;'X'.<br />
+&nbsp;&nbsp;gs_fcat-coltext&nbsp;=&nbsp;'MOVEMENT&nbsp;TYPE'.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fcat&nbsp;TO&nbsp;gt_fcat.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_fcat.<br />
+<br />
+&nbsp;&nbsp;gs_fcat-fieldname&nbsp;=&nbsp;'GRQTY'.<br />
+&nbsp;&nbsp;gs_fcat-ref_field&nbsp;=&nbsp;'MENGE'.<br />
+&nbsp;&nbsp;gs_fcat-ref_table&nbsp;=&nbsp;'EKBE'.<br />
+&nbsp;&nbsp;gs_fcat-coltext&nbsp;=&nbsp;'GRQTY'.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fcat&nbsp;TO&nbsp;gt_fcat.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_fcat.<br />
+<br />
+&nbsp;&nbsp;gs_fcat-fieldname&nbsp;=&nbsp;'GRAMT'.<br />
+&nbsp;&nbsp;gs_fcat-ref_field&nbsp;=&nbsp;'EMBTR'.<br />
+&nbsp;&nbsp;gs_fcat-ref_table&nbsp;=&nbsp;'EKBE'.<br />
+&nbsp;&nbsp;gs_fcat-coltext&nbsp;=&nbsp;'GR&nbsp;AMOUNT'.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fcat&nbsp;TO&nbsp;gt_fcat.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_fcat.<br />
+<br />
+&nbsp;&nbsp;gs_fcat-fieldname&nbsp;=&nbsp;'IVDOC'.<br />
+&nbsp;&nbsp;gs_fcat-ref_field&nbsp;=&nbsp;'BELNT'.<br />
+&nbsp;&nbsp;gs_fcat-ref_table&nbsp;=&nbsp;'EKBE'.<br />
+&nbsp;&nbsp;gs_fcat-coltext&nbsp;=&nbsp;'IV&nbsp;DOC'.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fcat&nbsp;TO&nbsp;gt_fcat.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_fcat.<br />
+<br />
+&nbsp;&nbsp;gs_fcat-fieldname&nbsp;=&nbsp;'IYEAR'.<br />
+&nbsp;&nbsp;gs_fcat-ref_field&nbsp;=&nbsp;'GJAHR'.<br />
+&nbsp;&nbsp;gs_fcat-ref_table&nbsp;=&nbsp;'EKBE'.<br />
+&nbsp;&nbsp;gs_fcat-coltext&nbsp;=&nbsp;'YEAR'.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fcat&nbsp;TO&nbsp;gt_fcat.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_fcat.<br />
+<br />
+&nbsp;&nbsp;gs_fcat-fieldname&nbsp;=&nbsp;'IVAMT'.<br />
+&nbsp;&nbsp;gs_fcat-ref_field&nbsp;=&nbsp;'DMBTR'.<br />
+&nbsp;&nbsp;gs_fcat-ref_table&nbsp;=&nbsp;'EKBE'.<br />
+&nbsp;&nbsp;gs_fcat-coltext&nbsp;=&nbsp;'IV&nbsp;AMOUNT'.<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_fcat&nbsp;TO&nbsp;gt_fcat.<br />
+&nbsp;&nbsp;CLEAR&nbsp;gs_fcat.<br />
+<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;GET_DATA<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;--&gt;&nbsp;&nbsp;p1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&&nbsp;&lt;--&nbsp;&nbsp;p2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM get_data .<br />
+&nbsp;&nbsp;DATA:&nbsp;lt_get&nbsp;LIKE&nbsp;gt_get.<br />
+<br />
+&nbsp;&nbsp;SELECT&nbsp;a~ebeln<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a~ebelp<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a~matnr<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a~werks<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a~lgort<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a~menge<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a~meins<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a~netpr<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b~lifnr<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b~waers<br />
+&nbsp;&nbsp;&nbsp;&nbsp;FROM&nbsp;ekpo&nbsp;AS&nbsp;a&nbsp;INNER&nbsp;JOIN&nbsp;ekko&nbsp;AS&nbsp;b<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ON&nbsp;a~ebeln&nbsp;=&nbsp;b~ebeln<br />
+&nbsp;&nbsp;&nbsp;&nbsp;INTO&nbsp;CORRESPONDING&nbsp;FIELDS&nbsp;OF&nbsp;TABLE&nbsp;gt_get<br />
+&nbsp;&nbsp;&nbsp;WHERE&nbsp;a~bukrs&nbsp;IN&nbsp;so_bukrs<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;a~werks&nbsp;IN&nbsp;so_werks<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;a~matnr&nbsp;IN&nbsp;so_matnr<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;b~lifnr&nbsp;IN&nbsp;so_lifnr<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;a~ebeln&nbsp;IN&nbsp;so_ebeln<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;b~ekorg&nbsp;IN&nbsp;so_ekorg<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;b~ekgrp&nbsp;IN&nbsp;so_ekgrp<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;b~bsart&nbsp;=&nbsp;'NB'.&nbsp;"standard&nbsp;po#&nbsp;select&nbsp;####&nbsp;##.&nbsp;(##)<br />
+<br />
+<br />
+<br />
+&nbsp;&nbsp;IF&nbsp;gt_get&nbsp;IS&nbsp;&nbsp;NOT&nbsp;INITIAL.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;select&nbsp;ekbe&nbsp;data<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;SELECT&nbsp;ebeln&nbsp;ebelp&nbsp;vgabe&nbsp;belnr&nbsp;buzei&nbsp;gjahr&nbsp;bwart&nbsp;shkzg&nbsp;menge&nbsp;dmbtr<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM&nbsp;ekbe<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INTO&nbsp;TABLE&nbsp;gt_ekbe<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FOR&nbsp;ALL&nbsp;ENTRIES&nbsp;IN&nbsp;gt_get<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;ebeln&nbsp;=&nbsp;gt_get-ebeln<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;ebelp&nbsp;=&nbsp;gt_get-ebelp<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;(&nbsp;vgabe&nbsp;=&nbsp;1&nbsp;OR&nbsp;vgabe&nbsp;=&nbsp;2&nbsp;)."###&nbsp;#.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select&nbsp;text&nbsp;data/&nbsp;lfa1,&nbsp;makt<br />
+<br />
+<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;lt_get&nbsp;=&nbsp;gt_get.<br />
+   </div>
+   <div class="codeComment">
+**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MOVE-CORRESPONDING&nbsp;GT_GET&nbsp;TO&nbsp;LT_GET.<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;SORT&nbsp;lt_get&nbsp;BY&nbsp;matnr.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;DELETE&nbsp;ADJACENT&nbsp;DUPLICATES&nbsp;FROM&nbsp;lt_get&nbsp;COMPARING&nbsp;matnr.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SELECT&nbsp;*<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM&nbsp;makt<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INTO&nbsp;TABLE&nbsp;gt_makt<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FOR&nbsp;ALL&nbsp;ENTRIES&nbsp;IN&nbsp;lt_get<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;matnr&nbsp;=&nbsp;lt_get-matnr.<br />
+<br />
+<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;for&nbsp;all&nbsp;entries&nbsp;in&nbsp;lt_get<br />
+*&nbsp;gt_mara,&nbsp;gt_lfa1<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;CLEAR&nbsp;lt_get.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;lt_get&nbsp;=&nbsp;gt_get.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SORT&nbsp;lt_get&nbsp;BY&nbsp;lifnr.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;DELETE&nbsp;ADJACENT&nbsp;DUPLICATES&nbsp;FROM&nbsp;lt_get&nbsp;COMPARING&nbsp;lifnr.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;SELECT&nbsp;*<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM&nbsp;lfa1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INTO&nbsp;TABLE&nbsp;gt_lfa1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FOR&nbsp;ALL&nbsp;ENTRIES&nbsp;IN&nbsp;lt_get<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;lifnr&nbsp;=&nbsp;lt_get-lifnr.<br />
+<br />
+&nbsp;&nbsp;ENDIF.<br />
+<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;MAKE_DATA<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;--&gt;&nbsp;&nbsp;p1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&&nbsp;&lt;--&nbsp;&nbsp;p2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM make_data .<br />
+&nbsp;&nbsp;DATA&nbsp;:&nbsp;ls_lfa1&nbsp;TYPE&nbsp;lfa1.<br />
+&nbsp;&nbsp;DATA&nbsp;lv_qty&nbsp;TYPE&nbsp;ekbe-menge."gr&nbsp;##<br />
+&nbsp;&nbsp;DATA&nbsp;lv_cnt&nbsp;TYPE&nbsp;i."gr&nbsp;count<br />
+&nbsp;&nbsp;DATA&nbsp;lv_ivcnt&nbsp;TYPE&nbsp;i.&nbsp;"iv&nbsp;count<br />
+&nbsp;&nbsp;DATA&nbsp;ls_style&nbsp;TYPE&nbsp;lvc_s_styl.<br />
+<br />
+&nbsp;&nbsp;CHECK&nbsp;gt_get&nbsp;IS&nbsp;NOT&nbsp;INITIAL.<br />
+&nbsp;&nbsp;SORT&nbsp;gt_lfa1&nbsp;BY&nbsp;lifnr.<br />
+&nbsp;&nbsp;LOOP&nbsp;AT&nbsp;gt_get&nbsp;INTO&nbsp;gs_get.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;fill&nbsp;gs_outtab&nbsp;field<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-ebeln&nbsp;=&nbsp;gs_get-ebeln.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-ebelp&nbsp;=&nbsp;gs_get-ebelp.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-lifnr&nbsp;=&nbsp;gs_get-lifnr.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-matnr&nbsp;=&nbsp;gs_get-matnr.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-werks&nbsp;=&nbsp;gs_get-werks.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-lgort&nbsp;=&nbsp;gs_get-lgort.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-menge&nbsp;=&nbsp;gs_get-menge.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-meins&nbsp;=&nbsp;gs_get-meins.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-netpr&nbsp;=&nbsp;gs_get-netpr.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-waers&nbsp;=&nbsp;gs_get-waers.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-poamt&nbsp;=&nbsp;gs_get-netpr&nbsp;*&nbsp;gs_get-menge.<br />
+<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_lfa1&nbsp;INTO&nbsp;ls_lfa1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WITH&nbsp;KEY&nbsp;lifnr&nbsp;=&nbsp;gs_get-lifnr&nbsp;BINARY&nbsp;SEARCH.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;sy-subrc&nbsp;=&nbsp;0.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-name1&nbsp;=&nbsp;ls_lfa1-name1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;LOOP&nbsp;AT&nbsp;gt_ekbe&nbsp;INTO&nbsp;gs_ekbe<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;ebeln&nbsp;=&nbsp;gs_get-ebeln<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;ebelp&nbsp;=&nbsp;gs_get-ebelp.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;gs_ekbe-vgabe&nbsp;=&nbsp;1."####<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;gs_ekbe-shkzg&nbsp;=&nbsp;'H'."##<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_ekbe-menge&nbsp;=&nbsp;gs_ekbe-menge&nbsp;*&nbsp;(&nbsp;-1&nbsp;).<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_ekbe-dmbtr&nbsp;=&nbsp;gs_ekbe-dmbtr&nbsp;*&nbsp;(&nbsp;-1&nbsp;).<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_qty&nbsp;=&nbsp;lv_qty&nbsp;+&nbsp;gs_ekbe-menge.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-gramt&nbsp;=&nbsp;gs_outtab-gramt&nbsp;+&nbsp;gs_ekbe-dmbtr.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;lv_cnt&nbsp;=&nbsp;1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-grdoc&nbsp;=&nbsp;icon_display."'MULTI'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;lv_cnt&nbsp;=&nbsp;0.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-grdoc&nbsp;=&nbsp;gs_ekbe-belnr.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_cnt&nbsp;=&nbsp;lv_cnt&nbsp;+&nbsp;1.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;gs_ekbe-vgabe&nbsp;=&nbsp;2."iv##<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;gs_ekbe-shkzg&nbsp;=&nbsp;'H'."##<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_ekbe-dmbtr&nbsp;=&nbsp;gs_ekbe-dmbtr&nbsp;*&nbsp;(&nbsp;-1&nbsp;).<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-ivamt&nbsp;=&nbsp;gs_outtab-ivamt&nbsp;+&nbsp;gs_ekbe-dmbtr.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;lv_ivcnt&nbsp;&gt;=&nbsp;1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-ivdoc&nbsp;=&nbsp;'MULTI'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ELSEIF&nbsp;lv_ivcnt&nbsp;=&nbsp;0.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-ivdoc&nbsp;=&nbsp;&nbsp;gs_ekbe-belnr.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lv_ivcnt&nbsp;=&nbsp;lv_ivcnt&nbsp;+&nbsp;1.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ENDLOOP.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-grqty&nbsp;=&nbsp;lv_qty.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;CLEAR:&nbsp;lv_qty,&nbsp;lv_cnt,&nbsp;lv_ivcnt.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-opmen&nbsp;=<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-menge&nbsp;-&nbsp;gs_outtab-grqty.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-grqin&nbsp;=&nbsp;gs_outtab-opmen.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;gs_outtab-grqin&nbsp;=&nbsp;0.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ls_style-fieldname&nbsp;=&nbsp;'GRQIN'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ls_style-style&nbsp;=&nbsp;cl_gui_alv_grid=&gt;mc_style_disabled.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT&nbsp;ls_style&nbsp;INTO&nbsp;TABLE&nbsp;gs_outtab-style.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CLEAR&nbsp;ls_style.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;gs_outtab-grdoc&nbsp;=&nbsp;icon_display.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ls_style-fieldname&nbsp;=&nbsp;'GRDOC'.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ls_style-style&nbsp;=&nbsp;cl_gui_alv_grid=&gt;mc_style_button.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT&nbsp;ls_style&nbsp;INTO&nbsp;TABLE&nbsp;gs_outtab-style.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clear&nbsp;ls_style.<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;APPEND&nbsp;gs_outtab&nbsp;TO&nbsp;gt_outtab.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;CLEAR&nbsp;gs_outtab.<br />
+<br />
+&nbsp;&nbsp;ENDLOOP.<br />
+<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;DOUBLE_CLICK_EVENT<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_ES_ROW_NO&nbsp;&nbsp;text<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_E_COLUMN&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM double_click_event  USING    ps_row_no TYPE lvc_s_roid<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p_column&nbsp;TYPE&nbsp;lvc_s_col.<br />
+<br />
+&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_outtab&nbsp;INTO&nbsp;gs_outtab&nbsp;INDEX&nbsp;ps_row_no-row_id.<br />
+<br />
+&nbsp;&nbsp;CASE&nbsp;p_column.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;'LIFNR'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET&nbsp;PARAMETER&nbsp;ID&nbsp;'LIF'&nbsp;FIELD&nbsp;gs_outtab-lifnr.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET&nbsp;PARAMETER&nbsp;ID&nbsp;'BUK'&nbsp;FIELD&nbsp;'1710'.<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;TRANSACTION&nbsp;'XK03'&nbsp;AND&nbsp;SKIP&nbsp;FIRST&nbsp;SCREEN.<br />
+&nbsp;&nbsp;ENDCASE.<br />
+<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;HOTSPOT_EVENT<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_ES_ROW_NO&nbsp;&nbsp;text<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--&gt;P_E_COLUMN_ID&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM hotspot_event  USING    ps_row_no TYPE lvc_s_roid<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p_column_id&nbsp;TYPE&nbsp;lvc_s_col.<br />
+&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_outtab&nbsp;INTO&nbsp;gs_outtab&nbsp;INDEX&nbsp;ps_row_no-row_id.<br />
+<br />
+&nbsp;&nbsp;CASE&nbsp;p_column_id-fieldname.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;'EBELN'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET&nbsp;PARAMETER&nbsp;ID&nbsp;'BES'&nbsp;FIELD&nbsp;gs_outtab-ebeln.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;TRANSACTION&nbsp;'ME23N'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;'MATNR'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET&nbsp;PARAMETER&nbsp;ID&nbsp;'MAT'&nbsp;FIELD&nbsp;gs_outtab-matnr.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET&nbsp;PARAMETER&nbsp;ID&nbsp;'MXX'&nbsp;FIELD&nbsp;'K'.<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;TRANSACTION&nbsp;'MM03'&nbsp;AND&nbsp;SKIP&nbsp;FIRST&nbsp;SCREEN.<br />
+&nbsp;&nbsp;ENDCASE.<br />
+<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;CREATE_OBJ<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;--&gt;&nbsp;&nbsp;p1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&&nbsp;&lt;--&nbsp;&nbsp;p2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM create_obj .<br />
+&nbsp;&nbsp;CREATE&nbsp;OBJECT&nbsp;go_cont<br />
+&nbsp;&nbsp;&nbsp;&nbsp;EXPORTING<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;container_name&nbsp;=&nbsp;'CC_100'.<br />
+&nbsp;&nbsp;CREATE&nbsp;OBJECT&nbsp;go_alv<br />
+&nbsp;&nbsp;&nbsp;&nbsp;EXPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i_parent&nbsp;=&nbsp;go_cont.<br />
+<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;SET_LAYOUT<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;--&gt;&nbsp;&nbsp;p1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&&nbsp;&lt;--&nbsp;&nbsp;p2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM set_layout .<br />
+<br />
+&nbsp;&nbsp;gs_layout-cwidth_opt&nbsp;='X'.<br />
+&nbsp;&nbsp;gs_layout-stylefname&nbsp;=&nbsp;'STYLE'.<br />
+<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;ALV_DISPLAY<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;--&gt;&nbsp;&nbsp;p1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&&nbsp;&lt;--&nbsp;&nbsp;p2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM alv_display .<br />
+<br />
+&nbsp;&nbsp;CREATE&nbsp;OBJECT&nbsp;go_handler.<br />
+&nbsp;&nbsp;SET&nbsp;HANDLER&nbsp;go_handler-&gt;on_double_click&nbsp;FOR&nbsp;go_alv.<br />
+&nbsp;&nbsp;SET&nbsp;HANDLER&nbsp;go_handler-&gt;on_hotspot_click&nbsp;FOR&nbsp;go_alv.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;alv#&nbsp;enter&nbsp;###&nbsp;##<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;CALL&nbsp;METHOD&nbsp;go_alv-&gt;register_edit_event<br />
+&nbsp;&nbsp;&nbsp;&nbsp;EXPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i_event_id&nbsp;=&nbsp;cl_gui_alv_grid=&gt;mc_evt_enter.<br />
+<br />
+&nbsp;&nbsp;CALL&nbsp;METHOD&nbsp;go_alv-&gt;set_table_for_first_display<br />
+&nbsp;&nbsp;&nbsp;&nbsp;EXPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is_layout&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;gs_layout<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it_toolbar_excluding&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;CHANGING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it_outtab&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;gt_outtab<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;it_fieldcatalog&nbsp;=&nbsp;gt_fcat.<br />
+<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;CREATE_GOODSMVT<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;--P_LS_OUTTAB&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM create_goodsmvt .<br />
+&nbsp;&nbsp;DATA:&nbsp;lt_rows&nbsp;TYPE&nbsp;lvc_t_roid,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ls_rows&nbsp;TYPE&nbsp;lvc_s_roid.<br />
+<br />
+&nbsp;&nbsp;CALL&nbsp;METHOD&nbsp;go_alv-&gt;get_selected_rows<br />
+&nbsp;&nbsp;&nbsp;&nbsp;IMPORTING<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;et_index_rows&nbsp;=<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;et_row_no&nbsp;=&nbsp;lt_rows.<br />
+<br />
+&nbsp;&nbsp;IF&nbsp;lines(&nbsp;lt_rows&nbsp;)&nbsp;=&nbsp;1&nbsp;.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;lt_rows&nbsp;INTO&nbsp;ls_rows&nbsp;INDEX&nbsp;1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_outtab&nbsp;INTO&nbsp;gs_outtab&nbsp;INDEX&nbsp;ls_rows-row_id.<br />
+&nbsp;&nbsp;ELSE.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;MESSAGE&nbsp;'###&nbsp;####&nbsp;#####'&nbsp;TYPE&nbsp;'E'.<br />
+&nbsp;&nbsp;ENDIF.<br />
+<br />
+&nbsp;&nbsp;IF&nbsp;gs_outtab-opmen&nbsp;=&nbsp;0&nbsp;&nbsp;OR&nbsp;gs_outtab-opmen&nbsp;&lt;&nbsp;gs_outtab-grqin.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;MESSAGE&nbsp;'##&nbsp;###&nbsp;#####'&nbsp;TYPE&nbsp;'E'.<br />
+&nbsp;&nbsp;ENDIF.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;HERDER&nbsp;####&nbsp;*<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;gs_goodsmvt_header-pstng_date&nbsp;=&nbsp;sy-datum.&nbsp;"today&nbsp;date<br />
+&nbsp;&nbsp;gs_goodsmvt_header-doc_date&nbsp;=&nbsp;sy-datum.&nbsp;"todaty&nbsp;date<br />
+&nbsp;&nbsp;gs_goodsmvt_header-header_txt&nbsp;=&nbsp;'TEST'.<br />
+<br />
+&nbsp;&nbsp;gs_goodsmvt_code-gm_code&nbsp;=&nbsp;'01'.&nbsp;"gr&nbsp;code<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;ITEM&nbsp;&nbsp;####&nbsp;*<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;gs_goodsmvt_item-material&nbsp;=&nbsp;gs_outtab-matnr.&nbsp;"material&nbsp;code<br />
+&nbsp;&nbsp;gs_goodsmvt_item-plant&nbsp;=&nbsp;gs_outtab-werks.&nbsp;"plant<br />
+&nbsp;&nbsp;gs_goodsmvt_item-move_type&nbsp;=&nbsp;'101'.&nbsp;"movement&nbsp;type&nbsp;##<br />
+&nbsp;&nbsp;gs_goodsmvt_item-mvt_ind&nbsp;=&nbsp;'B'.&nbsp;"item&nbsp;OK&nbsp;code<br />
+&nbsp;&nbsp;IF&nbsp;gs_outtab-lgort&nbsp;IS&nbsp;INITIAL.&nbsp;"storage&nbsp;empty&nbsp;#&nbsp;####<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_goodsmvt_item-stge_loc&nbsp;=&nbsp;'10Q1'.<br />
+&nbsp;&nbsp;ELSE.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_goodsmvt_item-stge_loc&nbsp;=&nbsp;&nbsp;gs_outtab-lgort.&nbsp;"storage<br />
+&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;gs_goodsmvt_item-entry_qnt&nbsp;=&nbsp;gs_outtab-grqin.&nbsp;"gr&nbsp;quantity<br />
+&nbsp;&nbsp;gs_goodsmvt_item-po_number&nbsp;=&nbsp;gs_outtab-ebeln.&nbsp;"po&nbsp;number<br />
+&nbsp;&nbsp;gs_goodsmvt_item-po_item&nbsp;=&nbsp;gs_outtab-ebelp.&nbsp;"po&nbsp;itme<br />
+<br />
+&nbsp;&nbsp;APPEND&nbsp;gs_goodsmvt_item&nbsp;TO&nbsp;gt_goodsmvt_item.<br />
+<br />
+&nbsp;&nbsp;CALL&nbsp;FUNCTION&nbsp;'BAPI_GOODSMVT_CREATE'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;EXPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goodsmvt_header&nbsp;&nbsp;=&nbsp;gs_goodsmvt_header<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goodsmvt_code&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;gs_goodsmvt_code<br />
+&nbsp;&nbsp;&nbsp;&nbsp;IMPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goodsmvt_headret&nbsp;=&nbsp;gs_header_ret<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;materialdocument&nbsp;=&nbsp;gv_materialdocument<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;matdocumentyear&nbsp;&nbsp;=&nbsp;gv_matdocumentyear<br />
+&nbsp;&nbsp;&nbsp;&nbsp;TABLES<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goodsmvt_item&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;gt_goodsmvt_item<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;gt_return.<br />
+<br />
+&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_return&nbsp;INTO&nbsp;gs_return&nbsp;WITH&nbsp;KEY&nbsp;type&nbsp;=&nbsp;'E'.<br />
+&nbsp;&nbsp;IF&nbsp;sy-subrc&nbsp;=&nbsp;0.&nbsp;"ERROR&nbsp;#&nbsp;BAPI&nbsp;##&nbsp;####&nbsp;ROLL&nbsp;BACK.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;FUNCTION&nbsp;'BAPI_TRANSACTION_ROLLBACK'<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IMPORTING<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-grqin&nbsp;=&nbsp;gs_outtab-opmen.&nbsp;"gr&nbsp;processing&nbsp;#&nbsp;##&nbsp;op##&nbsp;##.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;MODIFY&nbsp;gt_outtab&nbsp;FROM&nbsp;gs_outtab&nbsp;&nbsp;INDEX&nbsp;ls_rows-row_id.<br />
+&nbsp;&nbsp;ELSE.&nbsp;"ERROR&nbsp;###&nbsp;BAPI&nbsp;COMMIT&nbsp;&&nbsp;GT&nbsp;OUTTAB&nbsp;##&nbsp;##&nbsp;##&nbsp;##.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;FUNCTION&nbsp;'BAPI_TRANSACTION_COMMIT'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wait&nbsp;=&nbsp;'X'.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;GR&nbsp;##&nbsp;##&nbsp;ALV&nbsp;##&nbsp;##&nbsp;*<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;gs_outtab-grdoc&nbsp;IS&nbsp;INITIAL.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-grdoc&nbsp;=&nbsp;gv_materialdocument.&nbsp;"GR####<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-gyear&nbsp;=&nbsp;gv_matdocumentyear.&nbsp;"GR##&nbsp;##<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;PO&nbsp;##&nbsp;ALV&nbsp;##&nbsp;##&nbsp;&nbsp;*<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-gramt&nbsp;=&nbsp;gs_outtab-gramt&nbsp;+&nbsp;(&nbsp;gs_outtab-grqin&nbsp;*&nbsp;gs_outtab-netpr&nbsp;).&nbsp;"GR&nbsp;AMOUNT<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-grqty&nbsp;=&nbsp;gs_outtab-grqty&nbsp;+&nbsp;gs_outtab-grqin.&nbsp;"GR&nbsp;QUANTITY<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-opmen&nbsp;=&nbsp;gs_outtab-opmen&nbsp;-&nbsp;gs_outtab-grqin.&nbsp;"PO&nbsp;OPEM&nbsp;QUANTITY<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gs_outtab-grqin&nbsp;=&nbsp;gs_outtab-opmen.&nbsp;"PO&nbsp;GR&nbsp;PROCESSING&nbsp;QUANTITY<br />
+&nbsp;&nbsp;&nbsp;&nbsp;MODIFY&nbsp;gt_outtab&nbsp;FROM&nbsp;gs_outtab&nbsp;INDEX&nbsp;ls_rows-row_id.<br />
+<br />
+&nbsp;&nbsp;ENDIF.<br />
+<br />
+&nbsp;&nbsp;CLEAR:&nbsp;gs_goodsmvt_header,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_goodsmvt_code,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_goodsmvt_item,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_return.<br />
+&nbsp;&nbsp;REFRESH:&nbsp;gt_goodsmvt_item,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gt_return.<br />
+<br />
+ENDFORM.<br />
+   </div>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Form&nbsp;CANCEL_GOODSMVT<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;--&gt;&nbsp;&nbsp;p1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&&nbsp;&lt;--&nbsp;&nbsp;p2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+FORM cancel_goodsmvt .<br />
+<br />
+&nbsp;&nbsp;DATA:&nbsp;lt_rows&nbsp;TYPE&nbsp;lvc_t_roid,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ls_rows&nbsp;TYPE&nbsp;lvc_s_roid.<br />
+<br />
+&nbsp;&nbsp;CALL&nbsp;METHOD&nbsp;go_alv-&gt;get_selected_rows<br />
+&nbsp;&nbsp;&nbsp;&nbsp;IMPORTING<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;et_index_rows&nbsp;=<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;et_row_no&nbsp;=&nbsp;lt_rows.<br />
+<br />
+&nbsp;&nbsp;IF&nbsp;lines(&nbsp;lt_rows&nbsp;)&nbsp;=&nbsp;1&nbsp;.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;lt_rows&nbsp;INTO&nbsp;ls_rows&nbsp;INDEX&nbsp;1.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_outtab&nbsp;INTO&nbsp;gs_outtab&nbsp;INDEX&nbsp;ls_rows-row_id.<br />
+&nbsp;&nbsp;ELSE.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;MESSAGE&nbsp;'###&nbsp;####&nbsp;#####'&nbsp;TYPE&nbsp;'E'.<br />
+&nbsp;&nbsp;ENDIF.<br />
+<br />
+&nbsp;&nbsp;IF&nbsp;gs_outtab-opmen&nbsp;=&nbsp;gs_outtab-menge.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;MESSAGE&nbsp;'##&nbsp;#&nbsp;GR&nbsp;###&nbsp;####'&nbsp;TYPE&nbsp;'E'&nbsp;DISPLAY&nbsp;LIKE&nbsp;'W'.<br />
+&nbsp;&nbsp;ENDIF.<br />
+&nbsp;&nbsp;LOOP&nbsp;AT&nbsp;gt_ekbe&nbsp;INTO&nbsp;gs_ekbe&nbsp;WHERE&nbsp;ebeln&nbsp;=&nbsp;gs_outtab-ebeln<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;ebelp&nbsp;=&nbsp;gs_outtab-ebelp<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;vgabe&nbsp;=&nbsp;'1'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;shkzg&nbsp;=&nbsp;'S'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gv_ma_doc_cancel&nbsp;=&nbsp;gs_ekbe-belnr.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;gv_mad_year_cancel&nbsp;=&nbsp;gs_ekbe-gjahr.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;FUNCTION&nbsp;'BAPI_GOODSMVT_CANCEL'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;materialdocument&nbsp;=&nbsp;gv_ma_doc_cancel&nbsp;"###&nbsp;GR&nbsp;##&nbsp;##<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;matdocumentyear&nbsp;&nbsp;=&nbsp;gv_mad_year_cancel&nbsp;"###&nbsp;#####&nbsp;YEAR<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GOODSMVT_PSTNG_DATE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;"###&nbsp;###&nbsp;POSTIN&nbsp;DATE<br />
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GOODSMVT_PR_UNAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IMPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;goodsmvt_headret&nbsp;=&nbsp;gs_header_ret<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TABLES<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;gt_return.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;READ&nbsp;TABLE&nbsp;gt_return&nbsp;INTO&nbsp;gs_return&nbsp;WITH&nbsp;KEY&nbsp;type&nbsp;=&nbsp;'E'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BINARY&nbsp;SEARCH.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;sy-subrc&nbsp;=&nbsp;0.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REFRESH:&nbsp;gt_return.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CLEAR:&nbsp;gs_return.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CONTINUE.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ELSE.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALL&nbsp;FUNCTION&nbsp;'BAPI_TRANSACTION_COMMIT'<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EXPORTING<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wait&nbsp;=&nbsp;'X'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;ENDIF.<br />
+<br />
+&nbsp;&nbsp;&nbsp;&nbsp;CLEAR:&nbsp;gv_ma_doc_cancel,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gv_mad_year_cancel,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_header_ret,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gs_return.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;REFRESH:&nbsp;gt_return.<br />
+&nbsp;&nbsp;ENDLOOP.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;GS_OUTTAB&nbsp;ALV&nbsp;##&nbsp;*<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;gs_outtab-gramt&nbsp;=&nbsp;0.<br />
+&nbsp;&nbsp;gs_outtab-grqty&nbsp;=&nbsp;0.<br />
+&nbsp;&nbsp;gs_outtab-opmen&nbsp;=&nbsp;gs_outtab-menge.<br />
+&nbsp;&nbsp;gs_outtab-grqin&nbsp;=&nbsp;gs_outtab-opmen.<br />
+&nbsp;&nbsp;MODIFY&nbsp;gt_outtab&nbsp;FROM&nbsp;gs_outtab&nbsp;INDEX&nbsp;ls_rows-row_id.<br />
+<br />
+ENDFORM.<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>
+   <tr>
+<td class="footer">Extracted by Mass Download version 1.5.5 - E.G.Mellodew. 1998-2020. Sap Release 751</td>
+   </tr>
+</table>
+</body>
+</html>
