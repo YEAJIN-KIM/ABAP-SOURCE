@@ -1,0 +1,46 @@
+*&---------------------------------------------------------------------*
+*& Include          Z_PTJ01_053_TOP
+*&---------------------------------------------------------------------*
+
+DATA OK_CODE TYPE SY-UCOMM.
+
+TABLES: ZT05_0010, DD07T.
+
+DATA: BEGIN OF ISTR.  "DOMAIN TEXT
+            INCLUDE STRUCTURE ZT05_0010.
+DATA:  STAT TYPE ICON-ID,
+            DEPT_T TYPE DD07T-DDTEXT,
+            GRADE_T TYPE DD07T-DDTEXT,
+            STATUS_T TYPE DD07T-DDTEXT,
+            RESULT TYPE CHAR200,
+            EMPNO_BACKUP TYPE ZT05_0010-EMPNO,
+            END OF ISTR.
+
+DATA: ITAB LIKE TABLE OF ISTR.
+
+"이를 이용해서 WORKAREA
+DATA: LS_CHANGED TYPE LVC_S_MODI,
+           LV_TEXT TYPE DD07T-DDTEXT,
+           LT_DOMAIN TYPE TABLE OF DD07T WITH HEADER LINE.
+
+DATA: GO_CONT TYPE REF TO CL_GUI_CUSTOM_CONTAINER,
+           GO_ALV TYPE REF TO CL_GUI_ALV_GRID.
+
+DATA: GT_FCAT TYPE LVC_T_FCAT,
+           GS_FCAT TYPE LVC_S_FCAT.
+
+DATA: GS_LAYOUT TYPE LVC_S_LAYO.
+
+DATA: GT_EXCLUDE TYPE TABLE OF SY-UCOMM.
+
+
+SELECTION-SCREEN : BEGIN OF BLOCK  B1 WITH FRAME TITLE TEXT-001.
+SELECT-OPTIONS: EMPNO FOR ZT05_0010-EMPNO,
+                               NAME  FOR ZT05_0010-NAME,
+                               DEPT FOR ZT05_0010-DEPT,
+                               ENTDT FOR ZT05_0010-ENTDT,
+                               GRADE FOR ZT05_0010-GRADE,
+                               RETDT FOR ZT05_0010-RETDT,
+                               STATUS FOR ZT05_0010-STATUS.
+
+SELECTION-SCREEN: END OF BLOCK B1.
