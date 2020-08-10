@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=ISO-8859-1" />
+<title>Z_0701_0506</title>
+<style type="text/css">
+.code{ font-family:"Courier New", Courier, monospace; color:#000; font-size:14px; background-color:#F2F4F7 }
+  .codeComment {font-family:"Courier New", Courier, monospace; color:#0000F0; font-size:14px; background-color:#F2F4F7 }
+  .normalBold{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; font-weight:800 }
+  .normalBoldLarge{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+</style>
+<style type="text/css">
+  .normal{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px }
+  .footer{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:12px; text-align: center }
+  h2{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:16px; font-weight:800 }
+  h3{ font-family:Arial, Helvetica, sans-serif; color:#000; font-size:14px; font-weight:800 }
+  .outerTable{
+   background-color:#E0E7ED;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-right-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+  .innerTable{
+   background-color:#F2F4F7;
+   width:100%;
+   border-top-width: thin;
+   border-right-width: thin;
+   border-bottom-width: thin;
+   border-left-width: thin;
+   border-top-style: solid;
+   border-right-style: solid;
+   border-bottom-style: solid;
+   border-left-style: solid;
+  }
+</style>
+</head>
+<body>
+<table class="outerTable">
+  <tr class="normalBoldLarge">
+     <td><h2>Code listing for: Z_0701_0506</h2>
+<h3> Description: Program Z_TEST_SCREEN_S1B</h3></td>
+   </tr>
+  <tr>
+     <td>
+     <table class="innerTable">
+       <tr>
+          <td>
+   <div class="codeComment">
+*&---------------------------------------------------------------------*<br />
+*&&nbsp;Report&nbsp;Z_TEST_SCREEN_S1B<br />
+*&---------------------------------------------------------------------*<br />
+*&<br />
+*&---------------------------------------------------------------------*<br />
+   </div>
+   <div class="code">
+REPORT Z_0701_0506.<br />
+<br />
+   </div>
+   <div class="codeComment">
+*INCLUDE&nbsp;Z_TEST_SCREEN_S1B_top.<br />
+*include&nbsp;Z_TEST_SCREEN_S1B_e01.<br />
+   </div>
+   <div class="code">
+DATA: GS_FLIGHT TYPE SFLIGHTS.<br />
+<br />
+CONSTANTS GC_MARK VALUE 'X'.<br />
+<br />
+SELECTION-SCREEN BEGIN OF SCREEN 1100  AS SUBSCREEN.<br />
+SELECT-OPTIONS: SO_CAR FOR GS_FLIGHT-CARRID MEMORY ID CAR,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SO_CON&nbsp;FOR&nbsp;GS_FLIGHT-CONNID.<br />
+SELECTION-SCREEN END OF SCREEN 1100.<br />
+<br />
+SELECTION-SCREEN BEGIN OF SCREEN 1200  AS SUBSCREEN.<br />
+SELECT-OPTIONS SO_FDT FOR GS_FLIGHT-FLDATE NO-EXTENSION.<br />
+SELECTION-SCREEN END OF SCREEN 1200.<br />
+<br />
+SELECTION-SCREEN BEGIN OF SCREEN 1300  AS SUBSCREEN.<br />
+   </div>
+   <div class="codeComment">
+*&nbsp;&nbsp;SELECTION-SCREEN&nbsp;BEGIN&nbsp;OF&nbsp;BLOCK&nbsp;PARAM.<br />
+   </div>
+   <div class="code">
+SELECTION-SCREEN BEGIN OF BLOCK RADIO WITH FRAME.<br />
+PARAMETERS: PA_ALL RADIOBUTTON GROUP RBG1,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PA_NAT&nbsp;RADIOBUTTON&nbsp;GROUP&nbsp;RBG1,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PA_INT&nbsp;RADIOBUTTON&nbsp;GROUP&nbsp;RBG1&nbsp;DEFAULT&nbsp;'X'.<br />
+SELECTION-SCREEN END OF BLOCK RADIO.<br />
+   </div>
+   <div class="codeComment">
+*SELECTION-SCREEN&nbsp;END&nbsp;OF&nbsp;BLOCK&nbsp;PARAM.<br />
+   </div>
+   <div class="code">
+SELECTION-SCREEN END OF SCREEN 1300.<br />
+<br />
+SELECTION-SCREEN BEGIN OF TABBED BLOCK AIRLINES FOR 5 LINES.<br />
+SELECTION-SCREEN TAB (20) TAB1 USER-COMMAND CONN DEFAULT SCREEN 1100.<br />
+SELECTION-SCREEN TAB (20) TAB2 USER-COMMAND DATE DEFAULT SCREEN 1200.<br />
+SELECTION-SCREEN TAB (20) TAB3 USER-COMMAND TYPE DEFAULT SCREEN 1300.<br />
+SELECTION-SCREEN END OF BLOCK AIRLINES.<br />
+<br />
+INITIALIZATION.<br />
+&nbsp;&nbsp;MOVE:&nbsp;'AA'&nbsp;TO&nbsp;SO_CAR-LOW,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'QF'&nbsp;TO&nbsp;SO_CAR-HIGH,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'BT'&nbsp;TO&nbsp;SO_CAR-OPTION,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'I'&nbsp;TO&nbsp;SO_CAR-SIGN.<br />
+&nbsp;&nbsp;APPEND&nbsp;SO_CAR.<br />
+&nbsp;&nbsp;CLEAR&nbsp;SO_CAR.<br />
+<br />
+&nbsp;&nbsp;SO_CAR-LOW&nbsp;=&nbsp;'AZ'.<br />
+&nbsp;&nbsp;SO_CAR-OPTION&nbsp;=&nbsp;'EQ'.<br />
+&nbsp;&nbsp;SO_CAR-SIGN&nbsp;=&nbsp;'I'.<br />
+&nbsp;&nbsp;APPEND&nbsp;SO_CAR.<br />
+<br />
+<br />
+<br />
+&nbsp;&nbsp;TAB1&nbsp;=&nbsp;'Connections'(t11).<br />
+&nbsp;&nbsp;TAB2&nbsp;=&nbsp;'Date'(t12).<br />
+&nbsp;&nbsp;TAB3&nbsp;=&nbsp;'type&nbsp;of&nbsp;flight'(t13).<br />
+   </div>
+   <div class="codeComment">
+*<br />
+*tabblock&nbsp;###&nbsp;##*<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;AIRLINES-ACTIVETAB&nbsp;=&nbsp;'DATE'.<br />
+&nbsp;&nbsp;AIRLINES-DYNNR&nbsp;=&nbsp;'1200'.<br />
+   </div>
+   <div class="codeComment">
+*<br />
+*AT&nbsp;SELECTION-SCREEN&nbsp;ON&nbsp;BLOCK&nbsp;param.<br />
+*&nbsp;&nbsp;CHECK&nbsp;pa_nat&nbsp;=&nbsp;'X'&nbsp;AND&nbsp;pa_city&nbsp;=&nbsp;space.<br />
+*&nbsp;&nbsp;messgage&nbsp;'####&nbsp;#####'&nbsp;type&nbsp;'E'.<br />
+*<br />
+   </div>
+   <div class="code">
+START-OF-SELECTION.<br />
+<br />
+   </div>
+   <div class="codeComment">
+*<br />
+*<br />
+   </div>
+   <div class="code">
+&nbsp;&nbsp;CASE&nbsp;'X'.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;PA_ALL.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SELECT&nbsp;*<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FROM&nbsp;SFLIGHTS<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INTO&nbsp;GS_FLIGHT<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;CARRID&nbsp;IN&nbsp;SO_CAR<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;CONNID&nbsp;IN&nbsp;SO_CON<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AND&nbsp;FLDATE&nbsp;IN&nbsp;SO_FDT.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WRITE:/&nbsp;GS_FLIGHT-CARRID,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_FLIGHT-CONNID,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_FLIGHT-COUNTRYFR,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_FLIGHT-CITYFROM,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_FLIGHT-AIRPFROM,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_FLIGHT-CITYTO,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_FLIGHT-AIRPTO,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_FLIGHT-SEATSMAX,<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GS_FLIGHT-SEATSOCC.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDSELECT.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;PA_NAT.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;WHEN&nbsp;PA_INT.<br />
+&nbsp;&nbsp;ENDCASE.<br />
+<br />
+   </div>
+   <div class="codeComment">
+*Text&nbsp;elements<br />
+*----------------------------------------------------------<br />
+*&nbsp;T11&nbsp;Connections<br />
+*&nbsp;T12&nbsp;Date<br />
+*&nbsp;T13&nbsp;type&nbsp;of&nbsp;flight<br />
+<br />
+<br />
+*Selection&nbsp;texts<br />
+*----------------------------------------------------------<br />
+*&nbsp;PA_ALL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;##<br />
+*&nbsp;PA_INT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;##<br />
+*&nbsp;PA_NAT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;##<br />
+*&nbsp;SO_CAR&nbsp;D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<br />
+*&nbsp;SO_CON&nbsp;D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<br />
+*&nbsp;SO_FDT&nbsp;D&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<br />
+            </div>
+          </td>
+        </tr>
+      </table>
+      </td>
+      </tr>
+   <tr>
+<td class="footer">Extracted by Mass Download version 1.5.5 - E.G.Mellodew. 1998-2020. Sap Release 751</td>
+   </tr>
+</table>
+</body>
+</html>
